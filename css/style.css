@@ -96,7 +96,7 @@ ul li {
 ul li {
     list-style-type: disc;
     margin-bottom: 10px;
-    margin-left: 20px; /* Moves the bullet point 20px to the right */
+    margin-left: 20px; 
 }
 
 .home {
