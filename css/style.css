@@ -237,7 +237,7 @@ background-position: -33rem 0;
 }
 
 .home-sci a {
-    position: relative;
+    
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -920,7 +920,27 @@ section:nth-child(odd) .animate.scroll,
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        gap: 8px;
     }
+
+    .home-sci a:not(.download-resume) {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .home-sci a.download-resume {
+        width: 100%; /* Take full width of parent */
+        height: 35px; /* Auto height */
+        padding: 1rem 1.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+        border-radius: 1.5rem;
+        order: -1; /* Place it at the beginning */
+      }
 
     .home-sci a {
         width: 4rem;
