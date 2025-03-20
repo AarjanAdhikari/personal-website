@@ -1,44 +1,76 @@
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+const menuIcon = document.querySelector("#menu-icon")
+const navbar = document.querySelector(".navbar")
+const themeToggle = document.querySelector("#theme-toggle")
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
+// Theme toggle functionality
+function loadTheme() {
+  // Check if user has a saved theme preference
+  const savedTheme = localStorage.getItem("theme")
+
+  if (savedTheme === "light") {
+    document.body.classList.add("light-mode")
+  } else {
+    document.body.classList.remove("light-mode")
+  }
 }
 
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+// Toggle theme when button is clicked
+themeToggle.onclick = () => {
+  document.body.classList.toggle("light-mode")
+
+  // Save user preference to localStorage
+  if (document.body.classList.contains("light-mode")) {
+    localStorage.setItem("theme", "light")
+  } else {
+    localStorage.setItem("theme", "dark")
+  }
+}
+
+// Load saved theme when page loads
+document.addEventListener("DOMContentLoaded", loadTheme)
+
+// Existing menu functionality
+menuIcon.onclick = () => {
+  menuIcon.classList.toggle("bx-x")
+  navbar.classList.toggle("active")
+}
+
+const sections = document.querySelectorAll("section")
+const navLinks = document.querySelectorAll("header nav a")
 
 window.onscroll = () => {
-    let top = window.scrollY;
+  const top = window.scrollY
 
-    sections.forEach(sec => {
-        let offset = sec.offsetTop - 100;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+  sections.forEach((sec) => {
+    const offset = sec.offsetTop - 100
+    const height = sec.offsetHeight
+    const id = sec.getAttribute("id")
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            sec.classList.add('show-animate');
-        } else {
-            sec.classList.remove('show-animate');
-        }
-    });
-
-    let header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
-
-    
-    let footer = document.querySelector('footer');
-    let footerOffset = footer.offsetTop;
-    let footerHeight = footer.offsetHeight;
-
-    if (window.innerHeight + window.scrollY >= footerOffset) {
-        footer.classList.add('show-animate');
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach((link) => {
+        link.classList.remove("active")
+      })
+      document.querySelector("header nav a[href*=" + id + "]").classList.add("active")
+      sec.classList.add("show-animate")
     } else {
-        footer.classList.remove('show-animate');
+      sec.classList.remove("show-animate")
     }
+  })
+
+  const header = document.querySelector("header")
+  header.classList.toggle("sticky", window.scrollY > 100)
+
+  const footer = document.querySelector("footer")
+  const footerOffset = footer.offsetTop
+  const footerHeight = footer.offsetHeight
+
+  if (window.innerHeight + window.scrollY >= footerOffset) {
+    footer.classList.add("show-animate")
+  } else {
+    footer.classList.remove("show-animate")
+  }
+
+  // Remove active class from navbar when a link is clicked
+  menuIcon.classList.remove("bx-x")
+  navbar.classList.remove("active")
 }
