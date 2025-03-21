@@ -66,6 +66,22 @@ body {
     color: var(--bg-color);
     transition: all 0.3s ease;
   }
+
+  .theme-toggle i.bxs-sun {
+    color: #FFD700;
+  }
+  
+  .theme-toggle i.bxs-moon {
+    color: #E1E1E1;
+  }
+  
+  body.light-mode .theme-toggle i.bxs-sun {
+    color: #FFA500;
+  }
+  
+  body.light-mode .theme-toggle i.bxs-moon {
+    color: #C0C0C0;
+  }
   
   .theme-toggle::before {
     content: "";
@@ -726,6 +742,10 @@ span {
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
     width: 43.5%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
+    width: 35%;
 }
 
 
