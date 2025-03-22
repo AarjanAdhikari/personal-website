@@ -74,3 +74,44 @@ window.onscroll = () => {
   menuIcon.classList.remove("bx-x")
   navbar.classList.remove("active")
 }
+
+// Spotlight cursor effect exactly like Brittany Chiang's site
+document.addEventListener('DOMContentLoaded', function() {
+  // Create the spotlight element
+  const spotlight = document.createElement('div');
+  spotlight.className = 'spotlight';
+  document.body.appendChild(spotlight);
+  
+  // Track mouse movement
+  document.addEventListener('mousemove', function(e) {
+    // Update spotlight position to follow cursor
+    spotlight.style.background = `radial-gradient(
+      circle at ${e.clientX}px ${e.clientY}px,
+      rgba(0, 171, 240, 0.15) 0%,
+      rgba(0, 171, 240, 0.05) 5%,
+      rgba(0, 0, 0, 0) 15%
+    )`;
+  });
+  
+  // Handle light mode
+  function updateSpotlightColor() {
+    const isLightMode = document.body.classList.contains('light-mode');
+    const color = isLightMode ? '7, 119, 182' : '0, 171, 240'; // RGB values for your theme colors
+    
+    document.addEventListener('mousemove', function(e) {
+      spotlight.style.background = `radial-gradient(
+        circle at ${e.clientX}px ${e.clientY}px,
+        rgba(${color}, 0.15) 0%,
+        rgba(${color}, 0.05) 5%,
+        rgba(0, 0, 0, 0) 15%
+      )`;
+    });
+  }
+  
+  // Update spotlight when theme changes
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.addEventListener('click', updateSpotlightColor);
+  
+  // Initial setup
+  updateSpotlightColor();
+});
