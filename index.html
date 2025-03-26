@@ -276,7 +276,7 @@
 <section class="contact" id="contact">
     <h2 class="heading">Contact <span>Me!</span><span class="animate scroll" style="--i:1;"></span></h2>
 
-    <form action="#">
+    <form id="contact-form">
         <div class="input-box">
             <div class="input-field">
                 <input type="text" name="name" placeholder="Full Name" required>
@@ -335,6 +335,24 @@
 
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/script.js"></script>
+<script>
+    (function() {
+      emailjs.init("5ugGYDiH5mTRLsR4n");
+    })();
+  </script>
+
+  <!-- Notification Modal -->
+<div id="notification-modal" class="notification-modal">
+    <div class="notification-content">
+      <div class="notification-icon">
+        <i class='bx bx-check-circle success-icon'></i>
+        <i class='bx bx-error-circle error-icon'></i>
+      </div>
+      <div class="notification-message"></div>
+      <button class="notification-close"><i class='bx bx-x'></i></button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
 
 </html>
