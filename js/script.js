@@ -115,3 +115,73 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial setup
   updateSpotlightColor();
 });
+
+// Contact form handler with EmailJS
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contact-form');
+  const notificationModal = document.getElementById('notification-modal');
+  const notificationMessage = document.querySelector('.notification-message');
+  const notificationClose = document.querySelector('.notification-close');
+  
+  // Close notification when the close button is clicked
+  if (notificationClose) {
+    notificationClose.addEventListener('click', function() {
+      notificationModal.classList.remove('show');
+      setTimeout(() => {
+        notificationModal.classList.remove('success', 'error');
+      }, 300);
+    });
+  }
+  
+  // Show notification function
+  function showNotification(message, type) {
+    notificationMessage.textContent = message;
+    notificationModal.classList.add('show', type);
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+      notificationModal.classList.remove('show');
+      setTimeout(() => {
+        notificationModal.classList.remove('success', 'error');
+      }, 300);
+    }, 5000);
+  }
+  
+  // Handle form submission
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get submit button and add loading state
+      const submitBtn = contactForm.querySelector('.btn');
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      
+      // Send email using EmailJS
+      emailjs.sendForm(
+        'service_2ghv4dm', // Replace with YOUR actual Service ID
+        'template_6cpgog1', // Replace with YOUR actual Template ID
+        contactForm,
+        '5ugGYDiH5mTRLsR4n' // Replace with YOUR actual User ID
+      )
+      .then(function() {
+        // Success
+        showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+        contactForm.reset();
+        
+        // Reset button state
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      })
+      .catch(function(error) {
+        // Error
+        console.error('EmailJS error:', error);
+        showNotification('Something went wrong. Please try again later.', 'error');
+        
+        // Reset button state
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      });
+    });
+  }
+});
