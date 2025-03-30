@@ -186,35 +186,23 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// iOS detection and fixes - REPLACE the existing iOS detection code
+// Simple iOS detection and fixes
 document.addEventListener('DOMContentLoaded', function() {
-  // Detect iOS
+  // Check if device is iOS
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   
   if (isIOS) {
     // Add iOS class to body
     document.body.classList.add('ios-device');
     
-    // Fix for social icons on iOS
-    const socialIcons = document.querySelectorAll('.home-sci a:not(.download-resume) i');
+    // Force redraw of social icons
+    const socialIcons = document.querySelectorAll('.home-sci a i');
     socialIcons.forEach(icon => {
-      // Force icon visibility with original styling
+      // Force redraw by temporarily hiding and showing
+      icon.style.display = 'none';
       setTimeout(() => {
-        // Apply these styles directly to each icon
-        icon.style.display = 'flex';
-        icon.style.alignItems = 'center';
-        icon.style.justifyContent = 'center';
-        icon.style.width = '100%';
-        icon.style.height = '100%';
-        
-        // Force redraw
-        const parent = icon.parentElement;
-        const originalDisplay = parent.style.display;
-        parent.style.display = 'none';
-        setTimeout(() => {
-          parent.style.display = originalDisplay;
-        }, 10);
-      }, 100);
+        icon.style.display = 'inline-block';
+      }, 10);
     });
   }
 });
