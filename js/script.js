@@ -185,24 +185,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-
-// Simple iOS detection and fixes
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if device is iOS
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  
-  if (isIOS) {
-    // Add iOS class to body
-    document.body.classList.add('ios-device');
-    
-    // Force redraw of social icons
-    const socialIcons = document.querySelectorAll('.home-sci a i');
-    socialIcons.forEach(icon => {
-      // Force redraw by temporarily hiding and showing
-      icon.style.display = 'none';
-      setTimeout(() => {
-        icon.style.display = 'inline-block';
-      }, 10);
-    });
-  }
-});
