@@ -1311,85 +1311,64 @@ section:nth-child(odd) .animate.scroll,
     }
   }
   
-  /* iOS Safari fixes for icons - REPLACE the existing iOS fixes section */
-@supports (-webkit-touch-callout: none) {
-    /* iOS specific styles that won't affect other devices */
-    .home-sci {
-      /* Keep original layout */
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    /* Fix for social icons */
-    .home-sci a:not(.download-resume) {
-      /* Preserve original size */
-      width: 40px;
-      height: 40px;
-      position: relative;
-    }
-    
-    /* Force icon display */
-    .home-sci a:not(.download-resume) i {
-      /* Force display without changing appearance */
-      display: inline-flex !important;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      font-size: 2rem;
-      position: relative;
-      z-index: 2;
-    }
-    
-    /* Fix for download resume button */
-    .home-sci a.download-resume {
-      /* Preserve original size and position */
-      width: auto;
-      min-width: 150px;
-      height: 48px;
-      margin-right: 10px;
-    }
-    
-    /* Fix for button text */
-    .home-sci a.download-resume {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+  /* Simple iOS fixes - add to the end of your style.css file */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @supports (-webkit-touch-callout: none) {
+      /* Fix for social icons on iOS */
+      .home-sci {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: auto;
+        max-width: none;
+      }
+      
+      /* Fix for download resume button */
+      .home-sci a.download-resume {
+        margin-right: 15px;
+        width: auto;
+        min-width: 150px;
+        white-space: nowrap;
+        order: -1;
+      }
+      
+      /* Fix for social icons */
+      .home-sci a:not(.download-resume) {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 2px solid var(--main-color);
+        border-radius: 50%;
+        margin: 0 5px;
+      }
+      
+      /* Fix for icon display */
+      .home-sci a:not(.download-resume) i {
+        font-size: 20px;
+        color: var(--main-color);
+      }
     }
   }
 
-  /* Additional icon fixes for iOS */
-.ios-device .bxl-gmail:before {
-    content: "\ea0a";
-  }
-  
-  .ios-device .ri-twitter-x-fill:before {
-    content: "\f168";
-  }
-  
-  .ios-device .bxl-facebook:before {
-    content: "\ea0c";
-  }
-  
-  .ios-device .bxl-instagram:before {
-    content: "\ea0f";
-  }
-  
-  /* Fix for icon alignment */
-  .home-sci a:not(.download-resume) {
+  /* Add this to your style.css file */
+.social-icons-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
   }
   
-  /* Ensure icons are visible */
-  .home-sci a:not(.download-resume) i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  @media (max-width: 520px) {
+    .home-sci {
+      flex-direction: column;
+      align-items: flex-start;
+      width: auto;
+    }
+    
+    .social-icons-wrapper {
+      margin-top: 15px;
+    }
   }
   
