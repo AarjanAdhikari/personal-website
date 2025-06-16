@@ -1093,35 +1093,34 @@ section:nth-child(odd) .animate.scroll,
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
         gap: 1rem;
         width: auto;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 
     .home-sci a.download-resume {
-        width: auto;
-        min-width: 140px;
+        width: 140px;
         height: 40px;
-        padding: 0.8rem 1.2rem;
-        font-size: 1.3rem;
+        padding: 0.8rem 1rem;
+        font-size: 1.2rem;
         border-radius: 1.5rem;
+        order: 1;
         flex-shrink: 0;
     }
 
-    .home-sci .social-icons {
-        display: flex;
-        gap: 0.8rem;
-        flex-wrap: wrap;
-    }
-
     .home-sci a:not(.download-resume) {
-        width: 3.5rem;
-        height: 3.5rem;
-        font-size: 1.6rem;
+        width: 3.2rem;
+        height: 3.2rem;
+        font-size: 1.4rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        order: 2;
+        flex-shrink: 0;
+    }
+
+    .home-sci span.animate {
+        display: none;
     }
 }
 
