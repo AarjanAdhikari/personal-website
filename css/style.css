@@ -928,6 +928,7 @@ span {
     height: 100%;
     background: var(--bg-color);
     z-index: 98;
+    pointer-events: none;
 }
 
 .animate.home-img {
@@ -973,6 +974,13 @@ section:nth-child(odd) .animate.scroll,
 .footer.show-animate .animate.scroll {
     transition-delay: calc(.3s * var(--i));
     width: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.contact .animate.scroll {
+    pointer-events: none;
+    z-index: -1;
 }
 
 @media (max-width: 1200px) {
@@ -1087,36 +1095,38 @@ section:nth-child(odd) .animate.scroll,
     }
 
     .home-sci {
-        width: 160px;
+        position: absolute;
+        bottom: 4rem;
+        left: 9%;
+        right: 9%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 8px;
-    }
-
-    .home-sci a:not(.download-resume) {
-        width: 4rem;
-        height: 4rem;
-        font-size: 1.8rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        width: auto;
     }
 
     .home-sci a.download-resume {
-        width: 95%;
-        height: 35px;
+        width: 100%;
+        max-width: 170px;
+        height: 45px;
         padding: 1rem 1.5rem;
-        margin-bottom: 0.5rem;
         font-size: 1.4rem;
         border-radius: 1.5rem;
-        order: -1;
+        order: 1;
+        margin-bottom: 0;
     }
 
-    .home-sci a {
-        width: 4rem;
-        height: 4rem;
-        font-size: 1.8rem;
+    .home-sci .social-icons {
+        display: flex;
+        gap: 1rem;
+        order: 2;
+    }
+
+    .home-sci a:not(.download-resume) {
+        width: 4.5rem;
+        height: 4.5rem;
+        font-size: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
