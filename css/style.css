@@ -37,7 +37,7 @@ body.light-mode {
     --bg-color: #ffffff;
     --second-bg-color: #f9fafb;
     --text-color: #6b7280;
-    --main-color: #4f46e5;
+    --main-color: #241bcd;
     --heading-color: #111827;
     --highlight-color: #030712;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -504,6 +504,7 @@ span {
     color: var(--main-color);
 }
 
+/* if i wanted to add photo
 .about-img {
     position: relative;
     width: 25rem;
@@ -534,9 +535,11 @@ span {
     border-right: .2rem solid var(--main-color);
     animation: aboutSpinner 8s linear infinite;
 }
-
+*/
 .about-content {
     text-align: center;
+    margin-top: 2rem;
+    max-width: 80rem;
 }
 
 .about-content h3 {
@@ -789,7 +792,7 @@ span {
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
-    width: 20%;
+    width: 30%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span {
