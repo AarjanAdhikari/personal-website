@@ -373,9 +373,99 @@ ul li {
 .home-sci {
     position: absolute;
     bottom: 4rem;
+    left: 9%;
     display: flex;
     align-items: center;
     gap: 10px;
+    z-index: 999;
+}
+
+.home-sci a:not(.download-resume) {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.home-sci a.download-resume {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 48px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border: .2rem solid var(--main-color);
+    box-shadow: 0 0 1rem var(--main-color);
+    border-radius: 1.8rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.5s, color 0.5s;
+    text-decoration: none;
+}
+
+.home-sci a i {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-sci a:hover {
+    color: var(--bg-color);
+}
+
+.home-sci a:not(.download-resume)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--main-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:not(.download-resume):hover::before {
+    width: 100%;
+}
+
+.home-sci a.download-resume::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a.download-resume:hover::before {
+    width: 100%;
+}
+
+.home-sci a.download-resume:hover {
+    background: transparent;
+    box-shadow: none;
+    color: var(--main-color);
 }
 
 .home-sci a:not(.download-resume) {
