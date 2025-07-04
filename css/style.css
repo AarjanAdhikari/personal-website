@@ -15,7 +15,7 @@
 
 :root {
     --bg-color: #0a192f;
-    --second-bg-color: #112240;
+    --second-bg-color: #0a192f;
     --text-color: #8892b0;
     --main-color: #e6f1ff;
     --heading-color: #ccd6f6;
@@ -37,7 +37,7 @@ body.light-mode {
     --bg-color: #ffffff;
     --second-bg-color: #f9fafb;
     --text-color: #6b7280;
-    --main-color: #241bcd;
+    --main-color: #120b99;
     --heading-color: #111827;
     --highlight-color: #030712;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -182,7 +182,7 @@ body.light-mode .contact form .textarea-field textarea::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 500;
     transition: .3s;
 }
 
@@ -377,7 +377,8 @@ ul li {
     display: flex;
     align-items: center;
     gap: 10px;
-    z-index: 999;
+    z-index: 100;
+    transform: translateY(20px);
 }
 
 .home-sci a:not(.download-resume) {
