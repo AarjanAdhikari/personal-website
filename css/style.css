@@ -1577,3 +1577,4 @@ body.light-mode .project-card:hover {
     transition-delay: calc(.3s * var(--i));
     width: 0;
 }
+
