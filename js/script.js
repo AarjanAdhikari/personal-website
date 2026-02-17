@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', function() {
       )
       .then(function() {
         // Success with enhanced feedback
-        showNotification('🎉 Message sent successfully! I\'ll get back to you soon.', 'success');
+        showNotification('Your message has been successfully submitted. I will respond shortly.', 'success');
         contactForm.reset();
         
         // Reset form focus states
@@ -569,6 +569,21 @@ style.textContent = `
 
 document.head.appendChild(style);
 
+// Contact info hover effects
+function initContactInfoHover() {
+  const infoItems = document.querySelectorAll('.info-item');
+  
+  infoItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-5px)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
   // Add loading animation to page
@@ -578,6 +593,9 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(() => {
     document.body.style.opacity = '1';
   }, 100);
+  
+  // Initialize contact info hover
+  initContactInfoHover();
   
   console.log('🚀 Glassmorphism Portfolio Loaded Successfully!');
 });
