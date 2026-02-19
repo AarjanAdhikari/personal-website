@@ -2282,3 +2282,26 @@ body.light-mode .info-content p {
         gap: 2rem;
     }
 }
+
+@media (max-width: 768px) {
+    .home-sci a.download-resume {
+        height: 5rem;
+        width: 15rem;
+        border-radius: 3rem;
+    }
+}
+
+/* Rounded input boxes like buttons */
+.contact form .input-field input,
+.contact form .textarea-field textarea {
+    border-radius: 3rem;
+    height: 5rem;
+    padding: 0 2rem;
+}
+
+/* Taller message box 
+.contact form .textarea-field textarea {
+    height: 12rem;
+    border-radius: 2rem;
+}
+*/
