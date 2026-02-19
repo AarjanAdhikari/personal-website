@@ -648,7 +648,7 @@ body.light-mode .home-content h1 .intro-text {
     height: 100%;
     background: #ffffff;
     border: .2rem solid #ffffff;
-    border-radius: 2rem;
+    border-radius: 3rem;
     font-size: 1.8rem;
     font-weight: 600;
     letter-spacing: .1rem;
@@ -662,7 +662,7 @@ body.light-mode .home-content h1 .intro-text {
 .btn-box .talk-btn {
     background: #ffffff;
     border: .2rem solid #ffffff;
-    border-radius: 2rem;
+    border-radius: 3rem;
     color: #000000;
 }
 
@@ -757,7 +757,7 @@ body.light-mode .home-content h1 .intro-text {
     color: #000000;
     border: .2rem solid #ffffff;
     box-shadow: 0 0 1rem rgba(255, 255, 255, 0.3);
-    border-radius: 2rem;
+    border-radius: 3rem;
     font-size: 1.4rem;
     font-weight: 600;
     text-align: center;
@@ -907,7 +907,7 @@ span {
 .btn-box.btns .read-more-btn {
     background: #ffffff;
     border: .2rem solid #ffffff;
-    border-radius: 2rem;
+    border-radius: 3rem;
     color: #000000;
 }
 
@@ -1921,6 +1921,7 @@ body.light-mode .project-year {
     background: #000000;
     color: #ffffff;
     border-color: #000000;
+    border-radius: 3rem;
 }
 
 .live-btn:hover {
@@ -1935,6 +1936,7 @@ body.light-mode .project-year {
     background: #000000;
     color: #ffffff;
     border-color: #000000;
+    border-radius: 3rem;
 }
 
 .github-btn:hover {
@@ -2002,7 +2004,7 @@ body.light-mode .project-card:hover {
     background: #ffffff;
     color: #000000;
     border: .2rem solid #ffffff;
-    border-radius: 2rem;
+    border-radius: 3rem;
     font-size: 1.6rem;
     font-weight: 600;
     text-decoration: none;
@@ -2047,6 +2049,10 @@ body.light-mode .project-card:hover {
 }
 
 /* Contact Section Styling */
+.contact {
+    position: relative;
+}
+
 .contact h2 {
     color: #ffffff;
 }
@@ -2063,17 +2069,17 @@ body.light-mode .project-card:hover {
 }
 
 .contact-left {
-    background: rgba(230, 241, 255, 0.05);
+    background: transparent;
     padding: 2rem;
     border-radius: 2rem;
-    border: 1px solid rgba(230, 241, 255, 0.25);
-    backdrop-filter: blur(15px);
+    border: none;
+    backdrop-filter: none;
 }
 
 body.light-mode .contact-left {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(15px);
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
 }
 
 .contact-left form {
@@ -2106,14 +2112,16 @@ body.light-mode .form-group label {
 .input-field input,
 .textarea-field textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 1.2rem 1.5rem;
     background: rgba(0, 0, 0, 0.3);
-    border: .2rem solid rgba(230, 241, 255, 0.2);
-    border-radius: 1rem;
+    border: 1px solid rgba(230, 241, 255, 0.4);
+    border-radius: 3rem;
     color: #ffffff;
     font-size: 1.4rem;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .input-field input::placeholder,
@@ -2124,15 +2132,18 @@ body.light-mode .form-group label {
 .input-field input:focus,
 .textarea-field textarea:focus {
     background: rgba(0, 0, 0, 0.5);
-    border-color: rgba(230, 241, 255, 0.5);
-    box-shadow: 0 0 20px rgba(230, 241, 255, 0.1);
+    border-color: rgba(230, 241, 255, 0.6);
+    box-shadow: 0 0 20px rgba(230, 241, 255, 0.15);
+    outline: none;
 }
 
 body.light-mode .input-field input,
 body.light-mode .textarea-field textarea {
-    background: rgba(0, 0, 0, 0.08);
-    border: .2rem solid rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.3);
     color: #000000;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 body.light-mode .input-field input::placeholder,
@@ -2142,9 +2153,10 @@ body.light-mode .textarea-field textarea::placeholder {
 
 body.light-mode .input-field input:focus,
 body.light-mode .textarea-field textarea:focus {
-    background: rgba(0, 0, 0, 0.12);
-    border-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
 .textarea-field textarea {
@@ -2166,17 +2178,17 @@ body.light-mode .textarea-field textarea:focus {
 }
 
 .contact-right {
-    background: rgba(230, 241, 255, 0.05);
+    background: transparent;
     padding: 2rem;
     border-radius: 2rem;
-    border: 1px solid rgba(230, 241, 255, 0.25);
-    backdrop-filter: blur(15px);
+    border: none;
+    backdrop-filter: none;
 }
 
 body.light-mode .contact-right {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(15px);
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
 }
 
 .contact-info-card {
