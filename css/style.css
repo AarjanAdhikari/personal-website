@@ -13,6 +13,51 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Remove autofill background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3) inset !important;
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3) inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff !important;
+}
+
+body.light-mode input:-webkit-autofill,
+body.light-mode input:-webkit-autofill:hover,
+body.light-mode input:-webkit-autofill:focus,
+body.light-mode input:-webkit-autofill:active,
+body.light-mode textarea:-webkit-autofill,
+body.light-mode textarea:-webkit-autofill:hover,
+body.light-mode textarea:-webkit-autofill:focus,
+body.light-mode textarea:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.25) inset !important;
+    box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.25) inset !important;
+    -webkit-text-fill-color: #000000 !important;
+    caret-color: #000000 !important;
+}
+
+/* Arrow icon styling in send button */
+.contact-left .btn i {
+    margin-left: 0.5rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.contact-left .btn:hover i {
+    transform: translateX(3px);
+}
+
+.contact-left .btn:disabled i {
+    animation: none;
+    transform: none;
+}
+
 :root {
     --bg-color: #07070f;
     --second-bg-color: #07070f;
@@ -1142,43 +1187,43 @@ body.light-mode .skills-content .progress h3 {
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span {
-    width: 90%;
+    width: 80%;
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span {
-    width: 80%;
+    width: 70%;
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span {
-    width: 90%;
+    width: 70%;
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
-    width: 70%;
+    width: 40%;
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(5) .bar span {
-    width: 70%;
+    width: 65%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
-    width: 80%;
+    width: 90%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
-    width: 75%;
+    width: 70%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
-    width: 60%;
+    width: 75%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span {
-    width: 30%;
+    width: 65%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(5) .bar span {
-    width: 60%;
+    width: 65%;
 }
 
 .contact {
@@ -2206,13 +2251,15 @@ body.light-mode .contact-right {
 .info-item i {
     font-size: 2.4rem;
     color: #ffffff;
-    min-width: 3rem;
+    width: 5rem;
+    height: 5rem;
+    min-width: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(230, 241, 255, 0.1);
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 50%;
 }
 
 body.light-mode .info-item i {
