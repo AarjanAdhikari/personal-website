@@ -1522,6 +1522,7 @@ section:nth-child(odd) .animate.scroll,
 .about.show-animate .animate.scroll,
 .education.show-animate .animate.scroll,
 .skills.show-animate .animate.scroll,
+.projects.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
 .footer.show-animate .animate.scroll {
     transition-delay: calc(.3s * var(--i));
@@ -1530,10 +1531,6 @@ section:nth-child(odd) .animate.scroll,
     z-index: -1;
 }
 
-.contact .animate.scroll {
-    pointer-events: none;
-    z-index: -1;
-}
 
 @media (max-width: 1200px) {
     html {
@@ -2352,3 +2349,38 @@ body.light-mode .info-content p {
     border-radius: 2rem;
 }
 */
+
+/* Back Button Archive Styling */
+.back-btn-archive {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--main-color);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+}
+
+.back-btn-archive:hover {
+    transform: translateY(-50%) translateX(-5px);
+    color: var(--heading-color);
+}
+
+.back-btn-archive i {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+body.light-mode .back-btn-archive {
+    color: #000000;
+}
+
+body.light-mode .back-btn-archive:hover {
+    color: #333333;
+}
