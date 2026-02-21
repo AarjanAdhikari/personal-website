@@ -408,11 +408,7 @@ document.addEventListener('DOMContentLoaded', function() {
           input.classList.remove('focused');
         });
         
-        // Success animation
-        submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-        setTimeout(() => {
-          submitBtn.style.background = '';
-        }, 1000);
+        
         
       })
       .catch(function(error) {
