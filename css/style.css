@@ -2384,3 +2384,124 @@ body.light-mode .back-btn-archive {
 body.light-mode .back-btn-archive:hover {
     color: #333333;
 }
+
+/* --- FINAL FIXES --- */
+
+/* 1. Arrow Fix: Slanted and closer to text */
+.custom-arrow {
+    display: inline-block;
+    transform: rotate(45deg); /* Restores the 45-degree angle */
+    margin-left: 0.2rem;      /* Default for Project button */
+    font-size: 1.2em;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+/* Bring the arrow even closer ONLY for the Download Résumé button */
+.download-resume .custom-arrow {
+    margin-left: -0.6rem;
+}
+
+/* 2. Project Archive Button - EXACT match to Live Site / GitHub hover */
+.archive-btn {
+    position: relative;
+    background: #ffffff !important; /* White in dark mode */
+    border: .2rem solid #ffffff !important;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3rem !important; /* Added to perfectly match Live Site button shape */
+    transition: all 0.3s ease !important; /* Matched to Live Site hover speed */
+}
+
+/* Pure black text for the archive button in dark mode */
+.archive-btn, .archive-btn span, .archive-btn i {
+    color: #000000 !important;
+    transition: all 0.3s ease;
+}
+
+/* Logo size in archive box */
+.archive-btn i {
+    font-size: 2rem !important; 
+    margin-right: 0.8rem;
+}
+
+/* The Transparent Animation Effect EXACTLY like Live Site/GitHub */
+.archive-btn:hover {
+    background: transparent !important; 
+    transform: translateY(-3px) !important;
+    box-shadow: 0 0.8rem 1.5rem rgba(230, 241, 255, 0.2) !important;
+}
+
+/* Change text to white when transparent so it's readable on dark bg */
+.archive-btn:hover, .archive-btn:hover span, .archive-btn:hover i {
+    color: #ffffff !important; 
+}
+
+/* 3. Light Mode Adjustments */
+body.light-mode .archive-btn {
+    background: #000000 !important; /* Black box in light mode */
+    border-color: #000000 !important;
+}
+
+body.light-mode .archive-btn, 
+body.light-mode .archive-btn span, 
+body.light-mode .archive-btn i {
+    color: #ffffff !important; /* White text in light mode */
+}
+
+/* Light mode transparent hover */
+body.light-mode .archive-btn:hover {
+    background: transparent !important;
+    box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.2) !important;
+}
+
+body.light-mode .archive-btn:hover, 
+body.light-mode .archive-btn:hover span, 
+body.light-mode .archive-btn:hover i {
+    color: #000000 !important; /* Black text when transparent in light mode */
+}
+
+.contact form, 
+.contact-info-card {
+    /* Matches the .2rem solid border of the project card */
+    border: .2rem solid var(--main-color) !important; 
+}
+
+/* --- ARCHIVE PAGE NAV BAR FIXES --- */
+
+/* 1. Center the Project Archive logo and nudge it to the RIGHT */
+.archive-center-logo {
+    margin: 0 auto !important; 
+    position: relative;
+    left: 4rem; /* <--- THIS brings it to the right. Increase this number to move it even more. */
+}
+
+/* 2. Style the Back button and keep it at the left edge */
+.back-btn-archive {
+    position: absolute;
+    left: 1rem !important; 
+    font-size: 2rem !important; 
+    display: flex;
+    align-items: center;
+}
+
+/* 3. Increase the size of the left arrow icon */
+.back-btn-archive i {
+    font-size: 3rem !important; 
+}
+
+/* Keep the nav bar from shrinking when the title is deleted */
+.header {
+    min-height: 8rem !important; /* This matches the standard height of your header */
+    display: flex;
+    align-items: center;
+    padding: 2rem 9%; /* Keeps the consistent side spacing */
+}
+
+/* Ensure the back button stays vertically centered in the now-fixed header */
+.back-btn-archive {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
