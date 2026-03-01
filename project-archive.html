@@ -4,21 +4,21 @@
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7Q2MEST2S"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B7Q2MEST2S');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-B7Q2MEST2S');
     </script>
 
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem("theme");
             if (savedTheme === "light") {
                 document.documentElement.classList.add("light-mode");
             }
         })();
     </script>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,88 +35,149 @@
 
 <body>
 
-<header class="header">
-    <a href="index.html#projects" class="back-btn-archive">
-        <i class='bx bx-chevron-left'></i>Back
-    </a>
-    <!--
+    <header class="header">
+        <a href="index.html#projects" class="back-btn-archive">
+            <i class='bx bx-chevron-left'></i>Back
+        </a>
+        <!--
     <a href='#' class="logo archive-center-logo">Project Archive<span class="animate" style="--i:1;"></span></a>
 -->
-    
-</header>
 
-<section class="projects archive-section show-animate" id="projects">
-    <h2 class="heading">ALL PROJECTS<span></span><span class="animate scroll" style="--i:1;"></span></h2>
+    </header>
 
-    <div class="projects-container" style="position: relative; overflow: hidden; border-radius: 2.1rem;">
-        
-        <div class="project-card" style="border-radius: 2rem;">
-    <span class="animate scroll" style="--i:2;"></span>
+    <section class="projects archive-section show-animate" id="projects">
+        <h2 class="heading">ALL PROJECTS<span></span><span class="animate scroll" style="--i:1;"></span></h2>
 
-    <div class="project-grid"> <div class="project-img-thumb">
-            <img src="images/portfolio-v1.png" alt="Personal Website V1"> </div>
-        <div class="project-content">
-            <h3>Personal Website - V1 <span class="project-year">2023</span></h3>
-            <p>An old portfolio site created by translating custom Figma prototypes into a functional multi-page site.</p>
-            <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Figma</p>
-            <div class="project-links">
-                <a href="https://aarjanadhikari.github.io/portfolio-website-v1-/" class="project-btn live-btn" target="_blank">
-                    <i class='bx bx-globe'></i> Live Site<i class='bx bx-up-arrow-alt custom-arrow'></i>
-                </a>
-                <a href="https://github.com/AarjanAdhikari/portfolio-website-v1-" class="project-btn github-btn" target="_blank">
-                    <i class='bx bxl-github'></i> GitHub<i class='bx bx-up-arrow-alt custom-arrow'></i>
-                </a>
+        <div class="projects-container" style="position: relative; overflow: hidden; border-radius: 2.1rem;">
+
+            <div class="project-card" style="border-radius: 2rem;">
+                <span class="animate scroll" style="--i:2;"></span>
+
+                <div class="project-grid">
+                    <div class="project-img-thumb">
+                        <img src="images/portfolio-v1.png" alt="Personal Website V1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Website - V1 <span class="project-year">2023</span></h3>
+                        <p>An old portfolio site created by translating custom Figma prototypes into a functional
+                            multi-page site.</p>
+                        <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Figma</p>
+                        <div class="project-links">
+                            <a href="https://aarjanadhikari.github.io/portfolio-website-v1-/"
+                                class="project-btn live-btn" target="_blank">
+                                <i class='bx bx-globe'></i> Live Site<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                            <a href="https://github.com/AarjanAdhikari/portfolio-website-v1-"
+                                class="project-btn github-btn" target="_blank">
+                                <i class='bx bxl-github'></i> GitHub<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 5rem;"></div>
+                <div class="project-grid">
+                    <div class="project-img-thumb">
+                        <img src="images/weather-icon.png" alt="Weather App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Weather App (Atmos) <span class="project-year">2023</span></h3>
+                        <p>Atmos is a lightweight weather application built with HTML, CSS, and JavaScript that
+                            integrates the Open-Meteo API for real-time atmospheric data.</p>
+                        <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
+                        <div class="project-links">
+                            <a href="https://aarjanadhikari.github.io/weather-app/" class="project-btn live-btn"
+                                target="_blank">
+                                <i class='bx bx-globe'></i> Live Site<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                            <a href="https://github.com/AarjanAdhikari/weather-app" class="project-btn github-btn"
+                                target="_blank">
+                                <i class='bx bxl-github'></i> GitHub<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 5rem;"></div>
+                <div class="project-grid">
+                    <div class="project-img-thumb">
+                        <img src="images/movie-website.png" alt="Movie Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Movie Website <span class="project-year">2024</span></h3>
+                        <p>Developed a high-performance media discovery platform that reduced data fetching latency by
+                            30% through optimized asynchronous API calls.</p>
+                        <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript (ES6+), REST API</p>
+                        <div class="project-links">
+                            <a href="https://aarjanadhikari.github.io/Movie-Website/" class="project-btn live-btn"
+                                target="_blank">
+                                <i class='bx bx-globe'></i> Live Site<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                            <a href="https://github.com/AarjanAdhikari/Movie-Website" class="project-btn github-btn"
+                                target="_blank">
+                                <i class='bx bxl-github'></i> GitHub<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 5rem;"></div>
+
+                <div class="project-grid">
+                    <div class="project-img-thumb">
+                        <img src="images/portfolio-v2.png" alt="Personal Website V2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Website - V2 <span class="project-year">2025</span></h3>
+                        <p>Current portfolio site built from scratch to master the core principles of web layout and
+                            style systems.</p>
+                        <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Figma</p>
+                        <div class="project-links">
+                            <a href="https://aarjanadhikari.com.np" class="project-btn live-btn" target="_blank">
+                                <i class='bx bx-globe'></i> Live Site<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                            <a href="" class="project-btn github-btn"
+                                target="_blank">
+                                <i class='bx bxl-github'></i> GitHub<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 5rem;"></div>
+                <div class="project-grid">
+                    <div class="project-img-thumb">
+                        <img src="images/icon.png" alt="Nocturne Theme">
+                    </div>
+                    <div class="project-content">
+                        <h3>Nocturne Theme <span class="project-year">2026</span></h3>
+                        <p>A modern midnight VS Code theme featuring deep black backgrounds, soft white typography, cyan
+                            highlights, and golden accents based on Ayu Mirage theme.</p>
+                        <p><strong>Tech Stack:</strong> VS Code, JSON, Node.js, vsce, VS Code Extension API</p>
+                        <div class="project-links">
+                            <a href="https://aarjan-nocturne-theme.netlify.app/" class="project-btn live-btn"
+                                target="_blank">
+                                <i class='bx bx-globe'></i> Live Site<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                            <a href="https://github.com/AarjanAdhikari/Nocturne-Theme" class="project-btn github-btn"
+                                target="_blank">
+                                <i class='bx bxl-github'></i> GitHub<i class='bx bx-up-arrow-alt custom-arrow'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
+    </section>
 
-    <div style="margin-bottom: 5rem;"></div> <div class="project-grid">
-        <div class="project-img-thumb">
-            <img src="images/movie-website.png" alt="Movie Website"> </div>
-        <div class="project-content">
-            <h3>Movie Website <span class="project-year">2024</span></h3>
-            <p>Developed a high-performance media discovery platform that reduced data fetching latency by 30% through optimized asynchronous API calls.</p>
-            <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript (ES6+), REST API</p>
-            <div class="project-links">
-                <a href="https://aarjanadhikari.github.io/Movie-Website/" class="project-btn live-btn" target="_blank">
-                    <i class='bx bx-globe'></i> Live Site<i class='bx bx-up-arrow-alt custom-arrow'></i>
-                </a>
-                <a href="https://github.com/AarjanAdhikari/Movie-Website" class="project-btn github-btn" target="_blank">
-                    <i class='bx bxl-github'></i> GitHub<i class='bx bx-up-arrow-alt custom-arrow'></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div style="margin-bottom: 5rem;"></div>
-
-    <div class="project-grid">
-        <div class="project-img-thumb">
-            <img src="images/portfolio-v2.png" alt="Personal Website V2"> </div>
-        <div class="project-content">
-            <h3>Personal Website - V2 <span class="project-year">2025</span></h3>
-            <p>Current portfolio site built from scratch to master the core principles of web layout and style systems.</p>
-            <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Figma</p>
-            <div class="project-links">
-                <a href="https://aarjanadhikari.com.np" class="project-btn live-btn" target="_blank">
-                    <i class='bx bx-globe'></i> Live Site<i class='bx bx-up-arrow-alt custom-arrow'></i>
-                </a>
-                <a href="https://github.com/AarjanAdhikari/personal-website" class="project-btn github-btn" target="_blank">
-                    <i class='bx bxl-github'></i> GitHub<i class='bx bx-up-arrow-alt custom-arrow'></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-    </div>
-</section>
-
-<script src="js/script.js"></script> <script>
-    // This tells the archive page to check the saved theme immediately
-    window.onload = () => {
-        loadTheme();
-    };
-</script>
+    <script src="js/script.js"></script>
+    <script>
+        // This tells the archive page to check the saved theme immediately
+        window.onload = () => {
+            loadTheme();
+        };
+    </script>
 
 </body>
 
