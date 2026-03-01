@@ -5,13 +5,13 @@ const themeToggle = document.querySelector("#theme-toggle")
 // Enhanced Theme toggle functionality with smooth transitions
 function loadTheme() {
   const savedTheme = localStorage.getItem("theme")
-  
+
   if (savedTheme === "light") {
     document.body.classList.add("light-mode")
   } else {
     document.body.classList.remove("light-mode")
   }
-  
+
   // Update particles color based on theme
   updateParticlesColor()
 }
@@ -20,7 +20,7 @@ function loadTheme() {
 themeToggle.onclick = () => {
   // Add transition class for smooth theme switching
   document.body.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-  
+
   document.body.classList.toggle("light-mode")
 
   // Save user preference to localStorage
@@ -29,11 +29,11 @@ themeToggle.onclick = () => {
   } else {
     localStorage.setItem("theme", "dark")
   }
-  
+
   // Update particles and spotlight
   updateParticlesColor()
   updateSpotlightColor()
-  
+
   // Remove transition after animation completes
   setTimeout(() => {
     document.body.style.transition = ''
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", loadTheme)
 menuIcon.onclick = () => {
   menuIcon.classList.toggle("bx-x")
   navbar.classList.toggle("active")
-  
+
   // Add glass blur effect to menu icon when active
   if (menuIcon.classList.contains("bx-x")) {
     menuIcon.style.background = 'var(--glass-hover)'
@@ -100,26 +100,26 @@ window.onscroll = () => {
   // Remove active class from navbar when scrolling
   menuIcon.classList.remove("bx-x")
   navbar.classList.remove("active")
-  
+
   // Reset menu icon style
   menuIcon.style.background = 'var(--glass-bg)'
   menuIcon.style.backdropFilter = 'blur(20px)'
 }
 
 // Enhanced spotlight cursor effect with improved performance
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const spotlight = document.createElement('div');
   spotlight.className = 'spotlight';
   document.body.appendChild(spotlight);
-  
+
   let mouseX = 0;
   let mouseY = 0;
   let isMoving = false;
-  
+
   // Throttle mouse movement for better performance
   function throttle(func, limit) {
     let inThrottle;
-    return function() {
+    return function () {
       const args = arguments;
       const context = this;
       if (!inThrottle) {
@@ -129,12 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   }
-  
+
   // Update spotlight position
   function updateSpotlight() {
     const isLightMode = document.body.classList.contains('light-mode');
     const color = isLightMode ? '14, 165, 233' : '0, 171, 240';
-    
+
     spotlight.style.background = `radial-gradient(
       circle at ${mouseX}px ${mouseY}px,
       rgba(${color}, 0.15) 0%,
@@ -143,19 +143,19 @@ document.addEventListener('DOMContentLoaded', function() {
       rgba(0, 0, 0, 0) 25%
     )`;
   }
-  
+
   // Track mouse movement with throttling
-  const throttledMouseMove = throttle(function(e) {
+  const throttledMouseMove = throttle(function (e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
     updateSpotlight();
   }, 16); // ~60fps
-  
+
   document.addEventListener('mousemove', throttledMouseMove);
-  
+
   // Update spotlight color when theme changes
   window.updateSpotlightColor = updateSpotlight;
-  
+
   // Initial setup
   updateSpotlight();
 });
@@ -165,7 +165,7 @@ function updateParticlesColor() {
   const particles = document.querySelectorAll('.particle');
   const isLightMode = document.body.classList.contains('light-mode');
   const color = isLightMode ? 'rgba(14, 165, 233, 0.2)' : 'rgba(0, 171, 240, 0.3)';
-  
+
   particles.forEach(particle => {
     particle.style.background = color;
     particle.style.boxShadow = `0 0 10px ${color}`;
@@ -178,7 +178,7 @@ function initTypingAnimation() {
   if (typingElement) {
     const text = typingElement.textContent;
     typingElement.textContent = '';
-    
+
     let i = 0;
     const typeWriter = () => {
       if (i < text.length) {
@@ -187,7 +187,7 @@ function initTypingAnimation() {
         setTimeout(typeWriter, 100);
       }
     };
-    
+
     // Start typing animation after a delay
     setTimeout(typeWriter, 1000);
   }
@@ -196,30 +196,30 @@ function initTypingAnimation() {
 // Enhanced skill bar animations with intersection observer
 function initSkillBars() {
   const skillBars = document.querySelectorAll('.skills-content .progress .bar span');
-  
+
   const observerOptions = {
     threshold: 0.5,
     rootMargin: '0px 0px -100px 0px'
   };
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const bar = entry.target;
         const width = bar.style.width || bar.getAttribute('data-width');
-        
+
         // Reset and animate
         bar.style.width = '0%';
         setTimeout(() => {
           bar.style.transition = 'width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
           bar.style.width = width;
         }, 200);
-        
+
         observer.unobserve(bar);
       }
     });
   }, observerOptions);
-  
+
   skillBars.forEach(bar => {
     observer.observe(bar);
   });
@@ -228,28 +228,28 @@ function initSkillBars() {
 // Enhanced form animations and interactions
 function initFormAnimations() {
   const inputs = document.querySelectorAll('.glass-input input, .glass-textarea textarea');
-  
+
   inputs.forEach(input => {
     // Add floating label effect
-    input.addEventListener('focus', function() {
+    input.addEventListener('focus', function () {
       this.parentElement.classList.add('focused');
-      
+
       // Add ripple effect
       const ripple = document.createElement('div');
       ripple.className = 'input-ripple';
       this.parentElement.appendChild(ripple);
-      
+
       setTimeout(() => {
         ripple.remove();
       }, 600);
     });
-    
-    input.addEventListener('blur', function() {
+
+    input.addEventListener('blur', function () {
       if (!this.value) {
         this.parentElement.classList.remove('focused');
       }
     });
-    
+
     // Check if input has value on load
     if (input.value) {
       input.parentElement.classList.add('focused');
@@ -260,20 +260,20 @@ function initFormAnimations() {
 // Enhanced button hover effects
 function initButtonEffects() {
   const buttons = document.querySelectorAll('.glass-btn, .glass-btn-outline, .project-btn');
-  
+
   buttons.forEach(button => {
-    button.addEventListener('mouseenter', function(e) {
+    button.addEventListener('mouseenter', function (e) {
       const rect = this.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       const ripple = document.createElement('div');
       ripple.className = 'button-ripple';
       ripple.style.left = x + 'px';
       ripple.style.top = y + 'px';
-      
+
       this.appendChild(ripple);
-      
+
       setTimeout(() => {
         ripple.remove();
       }, 600);
@@ -284,23 +284,23 @@ function initButtonEffects() {
 // Enhanced card hover effects with 3D tilt
 function initCardEffects() {
   const cards = document.querySelectorAll('.glass-card, .project-card');
-  
+
   cards.forEach(card => {
-    card.addEventListener('mousemove', function(e) {
+    card.addEventListener('mousemove', function (e) {
       const rect = this.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      
+
       const rotateX = (y - centerY) / 10;
       const rotateY = (centerX - x) / 10;
-      
+
       this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
       this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
     });
   });
@@ -309,12 +309,12 @@ function initCardEffects() {
 // Enhanced scroll animations with intersection observer
 function initScrollAnimations() {
   const animatedElements = document.querySelectorAll('.glass-card, .glass-heading, .glass-subtitle');
-  
+
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
   };
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -324,7 +324,7 @@ function initScrollAnimations() {
       }
     });
   }, observerOptions);
-  
+
   animatedElements.forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
@@ -333,38 +333,38 @@ function initScrollAnimations() {
 }
 
 // Enhanced contact form handler with EmailJS and better UX
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const contactForm = document.getElementById('contact-form');
   const notificationModal = document.getElementById('notification-modal');
   const notificationMessage = document.querySelector('.notification-message');
   const notificationClose = document.querySelector('.notification-close');
-  
+
   // Close notification when the close button is clicked
   if (notificationClose) {
-    notificationClose.addEventListener('click', function() {
+    notificationClose.addEventListener('click', function () {
       hideNotification();
     });
   }
-  
+
   // Enhanced notification system
   function showNotification(message, type) {
     notificationMessage.textContent = message;
     notificationModal.classList.add('show', type);
-    
+
     // Add entrance animation
     setTimeout(() => {
       notificationModal.style.transform = 'translateX(0) scale(1)';
     }, 100);
-    
+
     // Auto-hide after 5 seconds
     setTimeout(() => {
       hideNotification();
     }, 5000);
   }
-  
+
   function hideNotification() {
     notificationModal.style.transform = 'translateX(400px) scale(0.9)';
-    
+
     setTimeout(() => {
       notificationModal.classList.remove('show');
       setTimeout(() => {
@@ -373,23 +373,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);
     }, 300);
   }
-  
+
   // Enhanced form submission
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      
+
       // Get submit button and add enhanced loading state
       const submitBtn = contactForm.querySelector('.btn');
       const originalText = submitBtn.textContent;
-      
+
       submitBtn.classList.add('loading');
       submitBtn.disabled = true;
       submitBtn.style.transform = 'scale(0.95)';
-      
+
       // Add form shake animation for better feedback
       contactForm.style.animation = 'formSubmit 0.3s ease';
-      
+
       // Send email using EmailJS
       emailjs.sendForm(
         'service_2ghv4dm',
@@ -397,40 +397,40 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm,
         '5ugGYDiH5mTRLsR4n'
       )
-      .then(function() {
-        // Success with enhanced feedback
-        showNotification('Your message has been successfully submitted. I will respond shortly.', 'success');
-        contactForm.reset();
-        
-        // Reset form focus states
-        const inputs = contactForm.querySelectorAll('.glass-input, .glass-textarea');
-        inputs.forEach(input => {
-          input.classList.remove('focused');
+        .then(function () {
+          // Success with enhanced feedback
+          showNotification('Your message has been successfully submitted. I will respond shortly.', 'success');
+          contactForm.reset();
+
+          // Reset form focus states
+          const inputs = contactForm.querySelectorAll('.glass-input, .glass-textarea');
+          inputs.forEach(input => {
+            input.classList.remove('focused');
+          });
+
+
+
+        })
+        .catch(function (error) {
+          // Error with enhanced feedback
+          console.error('EmailJS error:', error);
+          showNotification('❌ Something went wrong. Please try again later.', 'error');
+
+          // Error animation
+          contactForm.style.animation = 'formError 0.5s ease';
+        })
+        .finally(function () {
+          // Reset button state with smooth transition
+          setTimeout(() => {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            submitBtn.style.transform = '';
+            contactForm.style.animation = '';
+          }, 500);
         });
-        
-        
-        
-      })
-      .catch(function(error) {
-        // Error with enhanced feedback
-        console.error('EmailJS error:', error);
-        showNotification('❌ Something went wrong. Please try again later.', 'error');
-        
-        // Error animation
-        contactForm.style.animation = 'formError 0.5s ease';
-      })
-      .finally(function() {
-        // Reset button state with smooth transition
-        setTimeout(() => {
-          submitBtn.classList.remove('loading');
-          submitBtn.disabled = false;
-          submitBtn.style.transform = '';
-          contactForm.style.animation = '';
-        }, 500);
-      });
     });
   }
-  
+
   // Initialize all enhanced features
   initTypingAnimation();
   initSkillBars();
@@ -445,18 +445,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
-    
+
     if (target) {
       // Close mobile menu if open
       menuIcon.classList.remove("bx-x");
       navbar.classList.remove("active");
-      
+
       // Smooth scroll with custom easing
       target.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-      
+
       // Add highlight effect to target section
       target.style.animation = 'sectionHighlight 1s ease';
       setTimeout(() => {
@@ -484,7 +484,7 @@ function debounce(func, wait) {
 const handleResize = debounce(() => {
   // Update particle positions if needed
   updateParticlesColor();
-  
+
   // Recalculate any position-dependent elements
   const spotlight = document.querySelector('.spotlight');
   if (spotlight) {
@@ -568,30 +568,30 @@ document.head.appendChild(style);
 // Contact info hover effects
 function initContactInfoHover() {
   const infoItems = document.querySelectorAll('.info-item');
-  
+
   infoItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
+    item.addEventListener('mouseenter', function () {
       this.style.transform = 'translateY(-5px)';
     });
-    
-    item.addEventListener('mouseleave', function() {
+
+    item.addEventListener('mouseleave', function () {
       this.style.transform = 'translateY(0)';
     });
   });
 }
 
 // Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Add loading animation to page
   document.body.style.opacity = '0';
   document.body.style.transition = 'opacity 0.5s ease';
-  
+
   setTimeout(() => {
     document.body.style.opacity = '1';
   }, 100);
-  
+
   // Initialize contact info hover
   initContactInfoHover();
-  
+
   console.log('🚀 Glassmorphism Portfolio Loaded Successfully!');
 });
