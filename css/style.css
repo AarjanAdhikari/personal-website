@@ -88,15 +88,25 @@ body.light-mode {
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-p, li, .navbar a, input, textarea, .footer-text p {
+p,
+li,
+.navbar a,
+input,
+textarea,
+.footer-text p {
     color: #ffffff;
 }
 
-h1, h2, h3, .heading, .logo {
+h1,
+h2,
+h3,
+.heading,
+.logo {
     color: #ffffff;
 }
 
-strong, b {
+strong,
+b {
     color: #ffffff;
     font-weight: 700;
 }
@@ -1602,7 +1612,7 @@ section:nth-child(odd) .animate.scroll,
         transition-delay: .25s;
     }
 
-    
+
 
     .theme-toggle {
         margin-right: 5rem;
@@ -1650,9 +1660,9 @@ section:nth-child(odd) .animate.scroll,
     }
 }
 
-    .theme-toggle {
-        margin-right: 4rem;
-    }
+.theme-toggle {
+    margin-right: 4rem;
+}
 
 .home-sci a i {
     font-size: 2rem;
@@ -1702,6 +1712,7 @@ section:nth-child(odd) .animate.scroll,
 }
 
 @keyframes homeBgText {
+
     0%,
     10%,
     100% {
@@ -1715,10 +1726,11 @@ section:nth-child(odd) .animate.scroll,
 }
 
 @keyframes homeCursorText {
+
     0%,
     10%,
     100% {
-       width: 0;
+        width: 0;
     }
 
     65%,
@@ -1762,49 +1774,49 @@ section:nth-child(odd) .animate.scroll,
     overflow: hidden;
     transform: translateX(400px);
     transition: transform 0.4s ease;
-  }
-  
-  .notification-modal.show {
+}
+
+.notification-modal.show {
     display: block;
     transform: translateX(0);
-  }
-  
-  .notification-content {
+}
+
+.notification-content {
     display: flex;
     align-items: center;
     padding: 15px 20px;
-  }
-  
-  .notification-icon {
+}
+
+.notification-icon {
     font-size: 24px;
     margin-right: 15px;
-  }
-  
-  .notification-icon .success-icon {
+}
+
+.notification-icon .success-icon {
     color: var(--main-color);
     display: none;
-  }
-  
-  .notification-icon .error-icon {
+}
+
+.notification-icon .error-icon {
     color: #ff3860;
     display: none;
-  }
-  
-  .notification-modal.success .success-icon {
+}
+
+.notification-modal.success .success-icon {
     display: block;
-  }
-  
-  .notification-modal.error .error-icon {
+}
+
+.notification-modal.error .error-icon {
     display: block;
-  }
-  
-  .notification-message {
+}
+
+.notification-message {
     flex: 1;
     font-size: 1.5rem;
     color: var(--text-color);
-  }
-  
-  .notification-close {
+}
+
+.notification-close {
     background: transparent;
     border: none;
     color: var(--text-color);
@@ -1813,19 +1825,19 @@ section:nth-child(odd) .animate.scroll,
     padding: 5px;
     margin-left: 10px;
     transition: color 0.3s;
-  }
-  
-  .notification-close:hover {
+}
+
+.notification-close:hover {
     color: var(--main-color);
-  }
-  
-  /* Loading spinner for submit button */
-  .btn.loading {
+}
+
+/* Loading spinner for submit button */
+.btn.loading {
     position: relative;
     color: transparent !important;
-  }
-  
-  .btn.loading::after {
+}
+
+.btn.loading::after {
     content: "";
     position: absolute;
     width: 20px;
@@ -1838,15 +1850,15 @@ section:nth-child(odd) .animate.scroll,
     border: 2px solid var(--bg-color);
     border-top-color: var(--main-color);
     animation: spin 0.8s linear infinite;
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
-  
+}
+
+
 /* Projects Section */
 .projects {
     min-height: auto;
@@ -1982,12 +1994,12 @@ body.light-mode .project-card:hover {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .project-links {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .project-btn {
         width: 100%;
     }
@@ -1997,7 +2009,7 @@ body.light-mode .project-card:hover {
     .project-content h3 {
         font-size: 2rem;
     }
-    
+
     .project-content p {
         font-size: 1.4rem;
     }
@@ -2367,8 +2379,10 @@ body.light-mode .back-btn-archive:hover {
 /* 1. Arrow Fix: Slanted and closer to text */
 .custom-arrow {
     display: inline-block;
-    transform: rotate(45deg); /* Restores the 45-degree angle */
-    margin-left: 0.2rem;      /* Default for Project button */
+    transform: rotate(45deg);
+    /* Restores the 45-degree angle */
+    margin-left: 0.2rem;
+    /* Default for Project button */
     font-size: 1.2em;
     vertical-align: middle;
     transition: transform 0.3s ease;
@@ -2397,50 +2411,59 @@ body.light-mode .archive-button-wrapper {
 /* 2. Project Archive Button - EXACT match to Live Site / GitHub hover */
 .archive-btn {
     position: relative;
-    background: #ffffff !important; /* White in dark mode */
+    background: #ffffff !important;
+    /* White in dark mode */
     border: .2rem solid #ffffff !important;
     z-index: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 3rem !important; /* Added to perfectly match Live Site button shape */
-    transition: all 0.3s ease !important; /* Matched to Live Site hover speed */
+    border-radius: 3rem !important;
+    /* Added to perfectly match Live Site button shape */
+    transition: all 0.3s ease !important;
+    /* Matched to Live Site hover speed */
 }
 
 /* Pure black text for the archive button in dark mode */
-.archive-btn, .archive-btn span, .archive-btn i {
+.archive-btn,
+.archive-btn span,
+.archive-btn i {
     color: #000000 !important;
     transition: all 0.3s ease;
 }
 
 /* Logo size in archive box */
 .archive-btn i {
-    font-size: 2rem !important; 
+    font-size: 2rem !important;
     margin-right: 0.8rem;
 }
 
 /* The Transparent Animation Effect EXACTLY like Live Site/GitHub */
 .archive-btn:hover {
-    background: transparent !important; 
+    background: transparent !important;
     transform: translateY(-3px) !important;
     box-shadow: 0 0.8rem 1.5rem rgba(230, 241, 255, 0.2) !important;
 }
 
 /* Change text to white when transparent so it's readable on dark bg */
-.archive-btn:hover, .archive-btn:hover span, .archive-btn:hover i {
-    color: #ffffff !important; 
+.archive-btn:hover,
+.archive-btn:hover span,
+.archive-btn:hover i {
+    color: #ffffff !important;
 }
 
 /* 3. Light Mode Adjustments */
 body.light-mode .archive-btn {
-    background: #000000 !important; /* Black box in light mode */
+    background: #000000 !important;
+    /* Black box in light mode */
     border-color: #000000 !important;
 }
 
-body.light-mode .archive-btn, 
-body.light-mode .archive-btn span, 
+body.light-mode .archive-btn,
+body.light-mode .archive-btn span,
 body.light-mode .archive-btn i {
-    color: #ffffff !important; /* White text in light mode */
+    color: #ffffff !important;
+    /* White text in light mode */
 }
 
 /* Light mode transparent hover */
@@ -2449,47 +2472,51 @@ body.light-mode .archive-btn:hover {
     box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.2) !important;
 }
 
-body.light-mode .archive-btn:hover, 
-body.light-mode .archive-btn:hover span, 
+body.light-mode .archive-btn:hover,
+body.light-mode .archive-btn:hover span,
 body.light-mode .archive-btn:hover i {
-    color: #000000 !important; /* Black text when transparent in light mode */
+    color: #000000 !important;
+    /* Black text when transparent in light mode */
 }
 
-.contact form, 
+.contact form,
 .contact-info-card {
     /* Matches the .2rem solid border of the project card */
-    border: .2rem solid var(--main-color) !important; 
+    border: .2rem solid var(--main-color) !important;
 }
 
 /* --- ARCHIVE PAGE NAV BAR FIXES --- */
 
 /* 1. Center the Project Archive logo and nudge it to the RIGHT */
 .archive-center-logo {
-    margin: 0 auto !important; 
+    margin: 0 auto !important;
     position: relative;
-    left: 4rem; /* <--- THIS brings it to the right. Increase this number to move it even more. */
+    left: 4rem;
+    /* <--- THIS brings it to the right. Increase this number to move it even more. */
 }
 
 /* 2. Style the Back button and keep it at the left edge */
 .back-btn-archive {
     position: absolute;
-    left: 1rem !important; 
-    font-size: 2rem !important; 
+    left: 1rem !important;
+    font-size: 2rem !important;
     display: flex;
     align-items: center;
 }
 
 /* 3. Increase the size of the left arrow icon */
 .back-btn-archive i {
-    font-size: 3rem !important; 
+    font-size: 3rem !important;
 }
 
 /* Keep the nav bar from shrinking when the title is deleted */
 .header {
-    min-height: 8rem !important; /* This matches the standard height of your header */
+    min-height: 8rem !important;
+    /* This matches the standard height of your header */
     display: flex;
     align-items: center;
-    padding: 2rem 9%; /* Keeps the consistent side spacing */
+    padding: 2rem 9%;
+    /* Keeps the consistent side spacing */
 }
 
 /* Ensure the back button stays vertically centered in the now-fixed header */
@@ -2503,7 +2530,8 @@ body.light-mode .archive-btn:hover i {
 /* 1. Main Grid Layout */
 .project-grid {
     display: grid;
-    grid-template-columns: 150px 1fr; /* Image left, text right */
+    grid-template-columns: 150px 1fr;
+    /* Image left, text right */
     gap: 3rem;
     margin-bottom: 5rem;
     align-items: start;
@@ -2542,15 +2570,20 @@ body.light-mode .archive-btn:hover i {
 /* 3. MOBILE VIEW: Center the image */
 @media (max-width: 768px) {
     .project-grid {
-        grid-template-columns: 1fr; /* Stack vertically */
+        grid-template-columns: 1fr;
+        /* Stack vertically */
         gap: 2rem;
-        justify-items: center; /* Centers items in the grid */
-        text-align: center; /* Centers your text, titles, and buttons */
+        justify-items: center;
+        /* Centers items in the grid */
+        text-align: center;
+        /* Centers your text, titles, and buttons */
     }
-    
+
     .project-img-thumb {
-        width: 180px; /* Slightly bigger on mobile for better visibility */
-        margin: 0 auto; /* Ensures it stays in the middle */
+        width: 180px;
+        /* Slightly bigger on mobile for better visibility */
+        margin: 0 auto;
+        /* Ensures it stays in the middle */
     }
 
     /* Keep tech stack and links centered on mobile */
