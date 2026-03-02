@@ -1,43 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-/* --- GLOBAL GPU ACCELERATION (FIXED FOR TORCH) --- */
-
-/* 1. Remove transforms from html/body to keep the torch size accurate */
-html, body {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    /* Removed translate3d and perspective from here */
-}
-
-/* 2. Target only the main content wrappers for GPU rendering */
-section, 
-.container, 
-.skills-column, 
-.project-card, 
-.header, 
-.footer {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform, opacity;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-/* 3. THE FIX: Explicitly isolate the spotlight/torch from GPU scaling */
-.spotlight, 
-.cursor-dot, 
-.cursor-outline {
-    transform: none !important;
-    perspective: none !important;
-    will-change: auto !important;
-    /* Forces browser to render this on its own layer without scaling */
-    contain: layout style paint; 
-}
-
-/* Fixes "blurry" text during transitions */
-* {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
 * {
     margin: 0;
