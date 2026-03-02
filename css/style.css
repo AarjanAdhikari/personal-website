@@ -2630,31 +2630,22 @@ body.light-mode .archive-btn span {
     color: #ffffff !important;
 }
 
-/* --- ULTIMATE INVERTED PILLS: ICON-ONLY GLOW --- */
-
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 2.5rem;
-    justify-content: center;
-}
-
-/* --- ULTIMATE INVERTED PILLS: READ-MORE SLIDE & BLACK GLOW --- */
-
 /* --- ULTIMATE ACCURATE REPAIR --- */
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* Always 2 columns */
     gap: 1.5rem;
-    padding: 2.5rem;
+    padding: 2rem;
     justify-content: center;
 }
 
 /* DARK MODE: White Box, Black Text */
 .skill-item {
-    position: relative; /* CRITICAL */
+    position: relative;
+    /* CRITICAL */
     background: #ffffff !important;
     border: 2px solid #ffffff;
     display: inline-flex;
@@ -2666,7 +2657,8 @@ body.light-mode .archive-btn span {
     border-radius: 5rem;
     cursor: pointer;
     z-index: 1;
-    overflow: hidden; /* CRITICAL: Keeps the slide inside */
+    overflow: hidden;
+    /* CRITICAL: Keeps the slide inside */
     transition: .5s ease;
 }
 
@@ -2676,16 +2668,20 @@ body.light-mode .archive-btn span {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0; /* Hidden state */
+    width: 0;
+    /* Hidden state */
     height: 100%;
-    background: var(--main-color); /* Uses your cyan/blue */
-    opacity: 0.2; /* Makes it transparent/glassy like Read More */
+    background: var(--main-color);
+    /* Uses your cyan/blue */
+    opacity: 0.2;
+    /* Makes it transparent/glassy like Read More */
     z-index: -1;
-    transition: .5s ease; /* Accurate timing */
+    transition: .5s ease;
+    /* Accurate timing */
 }
 
 /* Force Black Font and Icon in Dark Mode */
-.skill-item i, 
+.skill-item i,
 .skill-item span {
     color: #000000 !important;
     font-size: 1.5rem;
@@ -2710,7 +2706,7 @@ body.light-mode .archive-btn span {
 
 .skill-item:hover i {
     /* BLACK GLOW ONLY in Dark Mode */
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8)); 
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
     transform: scale(1.1);
 }
 
@@ -2741,13 +2737,16 @@ body.light-mode .skill-item:hover i {
 .project-content h3 {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Space between bullet and title */
+    gap: 1rem;
+    /* Space between bullet and title */
     position: relative;
 }
 
 .project-content h3::before {
-    content: '•'; /* Premium Arrow Bullet */
-    color: var(--main-color); /* Your Cyan/Blue theme color */
+    content: '•';
+    /* Premium Arrow Bullet */
+    color: var(--main-color);
+    /* Your Cyan/Blue theme color */
     font-size: 2.2rem;
     font-weight: 900;
     /* This ensures it aligns perfectly with your text */
@@ -2756,6 +2755,14 @@ body.light-mode .skill-item:hover i {
 
 /* Ensure bullet looks good in light mode */
 body.light-mode .project-content h3::before {
-    color: var(--main-color); /* Keeps the brand color for the bullet */
+    color: var(--main-color);
+    /* Keeps the brand color for the bullet */
 }
 
+/* Centering Skills Titles only */
+.skills-row .title {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-bottom: 3rem;
+}
