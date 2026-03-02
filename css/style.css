@@ -862,11 +862,6 @@ body.light-mode .home-content h1 .intro-text {
 }
 
 
-
-
-
-
-
 .about {
     display: flex;
     justify-content: center;
@@ -875,6 +870,11 @@ body.light-mode .home-content h1 .intro-text {
     gap: 0;
     background: var(--bg-color);
     padding-bottom: 6rem;
+}
+
+/* Reduces space between "ABOUT" and your sub-title */
+.about .heading {
+    margin-bottom: 1rem !important;
 }
 
 .heading {
