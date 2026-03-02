@@ -1,4 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* --- GLOBAL GPU ACCELERATION (FIXED FOR TORCH) --- */
+
+/* 1. Remove transforms from html/body to keep the torch size accurate */
+html, body {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Removed translate3d and perspective from here */
+}
+
+/* 2. Target only the main content wrappers for GPU rendering */
+section, 
+.container, 
+.skills-column, 
+.project-card, 
+.header, 
+.footer {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* 3. THE FIX: Explicitly isolate the spotlight/torch from GPU scaling */
+.spotlight, 
+.cursor-dot, 
+.cursor-outline {
+    transform: none !important;
+    perspective: none !important;
+    will-change: auto !important;
+    /* Forces browser to render this on its own layer without scaling */
+    contain: layout style paint; 
+}
+
+/* Fixes "blurry" text during transitions */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 * {
     margin: 0;
@@ -2620,12 +2659,173 @@ body.light-mode .project-year {
 
 /* Makes the Archive Button BLACK with WHITE text in light mode */
 body.light-mode .archive-btn {
-    background: #081b29 !important;
-    border-color: #081b29 !important;
+    background: #000000 !important;
+    border-color: #000000 !important;
     color: #ffffff !important;
 }
 
 body.light-mode .archive-btn i,
 body.light-mode .archive-btn span {
     color: #ffffff !important;
+}
+
+/* --- ULTIMATE INVERTED PILLS: ICON-ONLY GLOW --- */
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    justify-content: center;
+}
+
+/* --- ULTIMATE INVERTED PILLS: READ-MORE SLIDE & BLACK GLOW --- */
+
+/* --- ULTIMATE ACCURATE REPAIR --- */
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    justify-content: center;
+}
+
+/* DARK MODE: White Box, Black Text */
+.skill-item {
+    position: relative; /* CRITICAL */
+    background: #ffffff !important;
+    border: 2px solid #ffffff;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 2.8rem;
+    width: max-content;
+    border-radius: 5rem;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden; /* CRITICAL: Keeps the slide inside */
+    transition: .5s ease;
+}
+
+/* THE TRANSPARENT SHUTTER (Same logic as Read More) */
+.skill-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; /* Hidden state */
+    height: 100%;
+    background: var(--main-color); /* Uses your cyan/blue */
+    opacity: 0.2; /* Makes it transparent/glassy like Read More */
+    z-index: -1;
+    transition: .5s ease; /* Accurate timing */
+}
+
+/* Force Black Font and Icon in Dark Mode */
+.skill-item i, 
+.skill-item span {
+    color: #000000 !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: .5s ease;
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+}
+
+/* --- THE HOVER SECTION (THE FIX) --- */
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: none !important;
+}
+
+/* THIS TRIGGERS THE ANIMATION - EXACTLY LIKE READ MORE */
+.skill-item:hover::before {
+    width: 100%;
+}
+
+.skill-item:hover i {
+    /* BLACK GLOW ONLY in Dark Mode */
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8)); 
+    transform: scale(1.1);
+}
+
+/* LIGHT MODE: Black Box, White Text */
+body.light-mode .skill-item {
+    background: #000000 !important;
+    border: 2px solid #000000;
+}
+
+/* Light mode transparent shutter */
+body.light-mode .skill-item::before {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .skill-item i,
+body.light-mode .skill-item span {
+    color: #ffffff !important;
+}
+
+body.light-mode .skill-item:hover i {
+    /* WHITE GLOW in Light Mode */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+/* --- MOBILE & TABLET CENTERING FIX --- */
+@media (max-width: 991px) {
+    .skills-column {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .skills-column .title {
+        margin-bottom: 2rem;
+        display: inline-block;
+        width: 100%;
+    }
+    .skills-grid {
+        justify-content: center;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .skills-row {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .skill-item {
+        padding: 1rem 1.8rem;
+        font-size: 1.3rem;
+    }
+    .skill-item i {
+        font-size: 2rem;
+    }
+}
+
+/* --- PROJECT TITLE BULLET POINT --- */
+.project-content h3 {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between bullet and title */
+    position: relative;
+}
+
+.project-content h3::before {
+    content: '•'; /* Premium Arrow Bullet */
+    color: var(--main-color); /* Your Cyan/Blue theme color */
+    font-size: 2.2rem;
+    font-weight: 900;
+    /* This ensures it aligns perfectly with your text */
+    display: inline-block;
+}
+
+/* Ensure bullet looks good in light mode */
+body.light-mode .project-content h3::before {
+    color: var(--main-color); /* Keeps the brand color for the bullet */
 }
