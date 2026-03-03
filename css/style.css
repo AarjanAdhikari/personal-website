@@ -2766,3 +2766,12 @@ body.light-mode .project-content h3::before {
     display: block;
     margin-bottom: 3rem;
 }
+
+.project-year {
+    font-size: inherit;
+    /* Forces year to be same size as title */
+    font-weight: inherit;
+    /* Forces year to be same thickness as title */
+    margin-left: auto;
+    /* Safety push to the right */
+}
