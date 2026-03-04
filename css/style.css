@@ -1518,6 +1518,7 @@ section:nth-child(odd) .animate.scroll,
 .education.show-animate .animate.scroll,
 .skills.show-animate .animate.scroll,
 .projects.show-animate .animate.scroll,
+.blog.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
 .footer.show-animate .animate.scroll {
     transition-delay: calc(.3s * var(--i));
@@ -2774,4 +2775,55 @@ body.light-mode .project-content h3::before {
     /* Forces year to be same thickness as title */
     margin-left: auto;
     /* Safety push to the right */
+}
+
+/* --- WRITINGS SECTION (IDENTICAL TO PROJECTS) --- */
+.blog {
+    min-height: auto;
+    padding-bottom: 7rem;
+}
+
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    padding: 0 9%;
+}
+
+/* --- WRITINGS SECTION (EXACT PROJECT MATCH) --- */
+.blog {
+    min-height: auto;
+    padding-bottom: 7rem;
+}
+
+.blog-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Forces the box to be wide like project cards */
+    gap: 3rem;
+    padding: 0 9%;
+}
+
+.blog-box {
+    position: relative;
+    /* Use transparent background to match project section */
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 2rem;
+    padding: 3rem;
+    overflow: hidden;
+    transition: .5s ease;
+    display: block;
+}
+
+/* NO GLOW ON HOVER - ONLY LIFT */
+.blog-box:hover {
+    transform: translateY(-1rem);
+    box-shadow: none !important;
+}
+
+/* Light Mode Fix */
+body.light-mode .blog-box {
+    background: rgba(0, 0, 0, 0.03);
+    border: .2rem solid #000000;
 }
