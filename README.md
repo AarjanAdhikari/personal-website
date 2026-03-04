@@ -2,7 +2,7 @@
 
 Current portfolio site built from scratch to master the core principles of web layout and style systems.
 
-![Project Preview](docs/preview.png)
+![Project Preview](images/portfolio-v2.png)
 
 ---
 
