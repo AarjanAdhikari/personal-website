@@ -1985,6 +1985,10 @@ body.light-mode .project-card {
     box-shadow: 0 0.5rem 1rem var(--shadow-color);
 }
 
+body.light-mode .project-card hr {
+    border: 0.1rem solid rgba(0, 0, 0, 0.15) !important;
+}
+
 body.light-mode .project-card:hover {
     box-shadow: 0 1rem 2rem var(--shadow-color);
 }
@@ -2826,4 +2830,90 @@ body.light-mode .project-content h3::before {
 body.light-mode .blog-box {
     background: rgba(0, 0, 0, 0.03);
     border: .2rem solid #000000;
+}
+
+body.light-mode .blog hr,
+body.light-mode hr {
+    border: 0.1rem solid rgba(0, 0, 0, 0.15) !important;
+}
+
+/* --- MOBILE VIEW FIXES FOR SKILLS SECTION --- */
+@media (max-width: 768px) {
+
+    /* 1. Reduce wrapper padding so content has more room to breathe */
+    .skills .project-card {
+        padding: 1.5rem !important;
+    }
+
+    /* 2. Force titles (Programming Languages) onto a single line */
+    .skills-row .title {
+        font-size: 2.4rem !important;
+        /* Scaled down to fit */
+        white-space: nowrap;
+        /* Prevents text from wrapping to a second line */
+        margin-bottom: 2rem !important;
+    }
+
+    /* 3. Force EXACTLY 2 skill boxes per row in mobile */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+}
+
+/* --- SKILLS LAYOUT (DESKTOP) --- */
+.skills-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    /* Forces all 3 to stay side-by-side */
+    gap: 0.5rem;
+    /* Tiny gap for desktop */
+}
+
+.skills-column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* --- VERTICAL DIVIDER --- */
+.skill-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+    /* Minimal horizontal gap */
+    align-self: stretch;
+    /* Makes it as tall as the content */
+}
+
+body.light-mode .skill-divider {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* --- MOBILE VIEW FIXES --- */
+@media (max-width: 768px) {
+    .skills-row {
+        flex-direction: column;
+        /* Stacks columns on phone */
+        gap: 0;
+        /* Removes gap between flex items */
+    }
+
+    .skill-divider {
+        width: 100%;
+        height: 1px;
+        margin: 1rem 0;
+        /* Minimal gap between sections in mobile */
+    }
+
+    /* Decreases space between last skill (Python) and next title */
+    .skills-box {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .skills-column .title {
+        margin-top: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
 }
