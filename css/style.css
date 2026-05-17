@@ -61,9 +61,9 @@ body.light-mode textarea:-webkit-autofill:active {
 :root {
     --bg-color: #07070f;
     --second-bg-color: #07070f;
-    --text-color: #8892b0;
-    --main-color: #e6f1ff;
-    --heading-color: #ccd6f6;
+    --text-color: #e4e7f0e2;
+    --main-color: #ffffff;
+    --heading-color: #ffffff;
     --highlight-color: #e6f1ff;
     --shadow-color: rgba(0, 0, 0, 0.2);
 }
@@ -108,7 +108,7 @@ h3,
 strong,
 b {
     color: #ffffff;
-    font-weight: 700;
+    font-weight: 550;
 }
 
 .theme-toggle {
@@ -356,7 +356,7 @@ body.light-mode .title {
 body.light-mode strong,
 body.light-mode b {
     color: #000000;
-    font-weight: 700;
+    font-weight: 550 !important;
 }
 
 body.light-mode .home-content h1 span,
@@ -531,20 +531,22 @@ body.light-mode .contact-info-card {
 }
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem 9%;
-    background: rgba(15, 15, 30, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(230, 241, 255, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 500;
-    transition: .3s;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 2rem 5% !important;
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2.5rem !important;
+    z-index: 500 !important;
+    transition: all 0.3s ease;
 }
 
 .header.sticky {
@@ -588,6 +590,7 @@ body.light-mode .logo {
     color: var(--text-color);
     cursor: pointer;
     display: none;
+    display: none !important;
 }
 
 section {
@@ -649,7 +652,7 @@ body.light-mode .home-content h1 .intro-text {
 
 .home-content .text-animate h3 {
     font-size: 3.2rem;
-    font-weight: 700;
+    font-weight: 530;
     color: transparent;
     -webkit-text-stroke: .7px var(--main-color);
     background-image: linear-gradient(var(--main-color), var(--main-color));
@@ -2916,4 +2919,1461 @@ body.light-mode .skill-divider {
         margin-top: 1rem !important;
         margin-bottom: 1.5rem !important;
     }
+}
+
+/* --- NEW PILL NAVBAR (DESKTOP ONLY TO PROTECT MOBILE) --- */
+@media (min-width: 769px) {
+
+    /* 1. Make the old full-width header invisible */
+    .header {
+        background: transparent !important;
+        border-bottom: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+    }
+
+    /* 2. Style the Navbar into the Black Pill */
+    .navbar {
+        order: 1;
+        /* Puts Navbar on the left */
+        background: #000000;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 5rem;
+        padding: 1.2rem 3.5rem;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        /* Exact spacing between words */
+    }
+
+    /* 3. Push Theme Toggle to the right side */
+    .theme-toggle {
+        order: 2;
+        margin-left: auto;
+    }
+
+    /* 4. Link Visuals */
+    .navbar a {
+        margin-left: 0 !important;
+        /* Removes your old spacing */
+        position: relative;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #ffffff !important;
+        /* Force white text */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 5. The Pipe '|' Separators */
+    .navbar a:not(:last-child)::after {
+        content: '|';
+        position: absolute;
+        right: -1.5rem;
+        /* Precisely centers the pipe in the 3rem gap */
+        transform: translateX(50%);
+        color: rgba(255, 255, 255, 0.3);
+        /* Dimmed out like the image */
+        font-weight: 300;
+    }
+
+    /* 6. The Active Indicator Dot '.' */
+    .navbar a.active::before {
+        content: '';
+        position: absolute;
+        bottom: -0.8rem;
+        /* Drops it below the word */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 4px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        /* Makes it a perfect circle */
+    }
+
+    /* --- LIGHT MODE SUPPORT FOR THE PILL --- */
+    body.light-mode .navbar {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    body.light-mode .navbar a {
+        color: #000000 !important;
+    }
+
+    body.light-mode .navbar a:not(:last-child)::after {
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    body.light-mode .navbar a.active::before {
+        background-color: #000000;
+    }
+}
+
+/* ==========================================================================
+   ULTIMATE GLASSY PILL NAVBAR & TOGGLE (UNIVERSAL DESIGN)
+   ========================================================================== */
+
+/* 1. Global Reset & Layout Alignment */
+.header,
+.header.sticky {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 2.5rem 2% !important;
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    z-index: 500 !important;
+}
+
+/* Hide hamburger icon completely */
+#menu-icon {
+    display: none !important;
+}
+
+/* Clear default active nav background sliders */
+.active-nav,
+.navbar .animate {
+    display: none !important;
+}
+
+/* 2. Glassy Pill Navbar Container */
+.navbar {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    height: 5.6rem !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 5rem !important;
+    padding: 0 4rem !important;
+    gap: 3.2rem !important;
+    /* Subtle outer edge glow */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.08),
+        inset 0 0 12px rgba(255, 255, 255, 0.02) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Light Mode Navbar */
+body.light-mode .navbar {
+    background: rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.03),
+        inset 0 0 12px rgba(0, 0, 0, 0.01) !important;
+}
+
+/* 3. Navigation Links & Enhanced Pipes '|' */
+.navbar a {
+    margin-left: 0 !important;
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.55) !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    transition: color 0.3s ease !important;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #ffffff !important;
+}
+
+body.light-mode .navbar a {
+    color: rgba(0, 0, 0, 0.55) !important;
+}
+
+body.light-mode .navbar a:hover,
+body.light-mode .navbar a.active {
+    color: #000000 !important;
+}
+
+/* The Pipe Separator styling */
+.navbar a:not(:last-of-type)::after {
+    content: '|' !important;
+    position: absolute !important;
+    right: -1.8rem;
+    font-size: 1.6rem !important;
+    font-weight: 300 !important;
+    color: rgba(255, 255, 255, 0.2) !important;
+    pointer-events: none !important;
+}
+
+body.light-mode .navbar a:not(:last-child)::after {
+    color: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* 4. Active Dot Indicator Below Link */
+.navbar a.active::before {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -0.7rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 5px !important;
+    height: 5px !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
+}
+
+body.light-mode .navbar a.active::before {
+    background-color: #000000 !important;
+    box-shadow: none !important;
+}
+
+/* 5. Matching Glassy Theme Toggle Button */
+.theme-toggle {
+    margin-left: 0 !important;
+    height: 5.6rem !important;
+    width: 9rem !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 5rem !important;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.06),
+        inset 0 0 12px rgba(255, 255, 255, 0.04) !important;
+    padding: 0 1.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+body.light-mode .theme-toggle {
+    background: rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.03),
+        inset 0 0 12px rgba(0, 0, 0, 0.01) !important;
+}
+
+/* Toggle Slider Handle */
+.theme-toggle::before {
+    width: 3.8rem !important;
+    height: 3.8rem !important;
+    left: 0.7rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background-color: #ffffff !important;
+}
+
+body.light-mode .theme-toggle::before {
+    left: 4.3rem !important;
+    background-color: #000000 !important;
+}
+
+.theme-toggle i {
+    font-size: 2rem !important;
+    z-index: 2 !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE MOBILE SCALING (LEFT TO RIGHT ROW PRESERVATION)
+   ========================================================================== */
+
+/* Tablets and Medium Screens */
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem 1rem !important;
+        gap: 1.2rem !important;
+    }
+
+    .navbar {
+        height: 4.8rem !important;
+        padding: 0 2.4rem !important;
+        gap: 2.2rem !important;
+    }
+
+    .navbar a {
+        font-size: 1.4rem !important;
+    }
+
+    .navbar a:not(:last-child)::after {
+        right: -1.3rem !important;
+        font-size: 1.4rem !important;
+    }
+
+    .theme-toggle {
+        height: 4.8rem !important;
+        width: 7.8rem !important;
+        padding: 0 1rem !important;
+    }
+
+    .theme-toggle::before {
+        width: 3.2rem !important;
+        height: 3.2rem !important;
+        left: 0.6rem !important;
+    }
+
+    body.light-mode .theme-toggle::before {
+        left: 3.8rem !important;
+    }
+
+    .theme-toggle i {
+        font-size: 1.7rem !important;
+    }
+}
+
+/* Mobile Phones (Ensures all fits cleanly without breaking rows) */
+@media (max-width: 450px) {
+    .header {
+        gap: 0.8rem !important;
+    }
+
+    .navbar {
+        height: 4.2rem !important;
+        padding: 0 1.5rem !important;
+        gap: 1.5rem !important;
+    }
+
+    .navbar a {
+        font-size: 1.2rem !important;
+    }
+
+    .navbar a:not(:last-child)::after {
+        right: -0.9rem !important;
+        font-size: 1.2rem !important;
+    }
+
+    .navbar a.active::before {
+        bottom: -0.5rem !important;
+        width: 4px !important;
+        height: 4px !important;
+    }
+
+    .theme-toggle {
+        height: 4.2rem !important;
+        width: 6.8rem !important;
+        padding: 0 0.8rem !important;
+    }
+
+    .theme-toggle::before {
+        width: 2.8rem !important;
+        height: 2.8rem !important;
+        left: 0.5rem !important;
+    }
+
+    body.light-mode .theme-toggle::before {
+        left: 3.3rem !important;
+    }
+
+    .theme-toggle i {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* ==========================================================================
+   UPDATED FIX: NON-WRAPPING MOBILE LAYOUT & SLIDING DUAL TOGGLE
+   ========================================================================== */
+
+/* ==========================================================================
+   1. HEADER & ABSOLUTE CENTERED NAVBAR (DESKTOP)
+   ========================================================================== */
+.header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 2rem 5% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    /* Pushes Logo left, Toggle right */
+    align-items: center !important;
+    z-index: 1000 !important;
+    background: transparent !important;
+}
+
+.navbar {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    /* This guarantees DEAD CENTER always */
+    height: 5.6rem !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 5rem !important;
+    padding: 0 3.5rem !important;
+    gap: 3rem !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15),
+        inset 0 0 10px rgba(255, 255, 255, 0.03) !important;
+    white-space: nowrap !important;
+    /* Forces a single line */
+}
+
+/* Pipe logic and Link styling */
+.navbar a {
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    position: relative !important;
+    transition: color 0.3s ease !important;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #ffffff !important;
+}
+
+.navbar a:not(:last-child)::after {
+    content: '|' !important;
+    position: absolute !important;
+    right: -1.7rem !important;
+    font-size: 1.6rem !important;
+    font-weight: 300 !important;
+    color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.navbar a:last-child::after,
+.navbar a:last-of-type::after {
+    display: none !important;
+}
+
+.navbar a.active::before {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -0.8rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 4px !important;
+    height: 4px !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+}
+
+/* ==========================================================================
+   2. REFINED SMALLER THEME TOGGLE
+   ========================================================================== */
+.theme-toggle {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 4.8rem !important;
+    /* Slightly smaller overall */
+    width: 8.5rem !important;
+    padding: 0 1.2rem !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(25px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 5rem !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    /* Prevents squishing */
+}
+
+.theme-toggle i {
+    font-size: 1.8rem !important;
+    z-index: 1 !important;
+}
+
+.theme-toggle .bx-sun {
+    color: #ffb703 !important;
+}
+
+.theme-toggle .bx-moon {
+    color: #ffffff !important;
+}
+
+/* The Smaller Sliding Ball */
+.theme-toggle::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 0.6rem !important;
+    transform: translateY(-50%) !important;
+    width: 3.6rem !important;
+    /* Shrunk ball size */
+    height: 3.6rem !important;
+    /* Shrunk ball size */
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 2 !important;
+}
+
+body.light-mode .theme-toggle::before {
+    left: 4.1rem !important;
+    background-color: #000000 !important;
+}
+
+body.light-mode .theme-toggle .bx-moon {
+    color: #666 !important;
+}
+
+body.light-mode .navbar {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.06) !important;
+}
+
+
+/* ==========================================================================
+   3. EXTREME MOBILE COMPRESSION (FORCES SINGLE ROW, NO WRAPPING)
+   ========================================================================== */
+@media (max-width: 900px) {
+
+    /* Tablet fallback to prevent overlapping */
+    .header {
+        padding: 1.5rem 3% !important;
+    }
+
+    .navbar {
+        position: static !important;
+        /* Release absolute center on smaller screens */
+        transform: none !important;
+        gap: 1.5rem !important;
+        padding: 0 2rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 2% !important;
+        gap: 0.5rem !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .logo {
+        font-size: 1.2rem !important;
+        /* Shrink logo drastically to make room */
+        flex-shrink: 0 !important;
+    }
+
+    .navbar {
+        height: 3.8rem !important;
+        padding: 0 0.8rem !important;
+        gap: 0.7rem !important;
+        width: auto !important;
+        flex-shrink: 1 !important;
+        /* Allows navbar to squeeze if needed */
+    }
+
+    .navbar a {
+        font-size: 0.85rem !important;
+        /* Tiny font to fit all 6 links */
+        letter-spacing: -0.2px !important;
+    }
+
+    .navbar a:not(:last-child)::after {
+        right: -0.45rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .theme-toggle {
+        height: 3.8rem !important;
+        width: 6.2rem !important;
+        padding: 0 0.6rem !important;
+    }
+
+    .theme-toggle i {
+        font-size: 1.4rem !important;
+    }
+
+    .theme-toggle::before {
+        width: 2.8rem !important;
+        height: 2.8rem !important;
+        left: 0.4rem !important;
+    }
+
+    body.light-mode .theme-toggle::before {
+        left: 2.8rem !important;
+    }
+}
+
+/* Light Mode: Moves ball to the right to cover the Moon */
+body.light-mode .header .theme-toggle::before {
+    left: 3.9rem !important;
+    background-color: #000000 !important;
+}
+
+/* ==========================================================================
+   FLUID MOBILE SCALING OVERRIDE (Ensures perfect Left-To-Right Fit)
+   ========================================================================== */
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 2% !important;
+        gap: 0.4rem !important;
+    }
+
+    /* Shrink logo scale down slightly so the pills get maximum screen width */
+    .header .logo {
+        font-size: 1.6rem !important;
+        white-space: nowrap !important;
+    }
+
+    .header .navbar {
+        height: 4rem !important;
+        padding: 0 1.2rem !important;
+        gap: 1.1rem !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .header .navbar a {
+        font-size: 1.15rem !important;
+    }
+
+    .header .navbar a:not(:last-child)::after {
+        right: -0.7rem !important;
+        font-size: 1.15rem !important;
+    }
+
+    .header .navbar a.active::before {
+        bottom: -0.5rem !important;
+        width: 3px !important;
+        height: 3px !important;
+    }
+
+    /* Mobile toggle proportions matching the scaled down navbar */
+    .header .theme-toggle {
+        width: 6.8rem !important;
+        height: 4rem !important;
+        padding: 0 0.9rem !important;
+    }
+
+    .header .theme-toggle i {
+        font-size: 1.5rem !important;
+    }
+
+    .header .theme-toggle::before {
+        width: 3.2rem !important;
+        height: 3.2rem !important;
+        left: 0.4rem !important;
+    }
+
+    body.light-mode .header .theme-toggle::before {
+        left: 3.2rem !important;
+    }
+}
+
+/* ==========================================================================
+   FINAL RESOLUTION: HORIZONTAL LINKS INTEGRITY & POSITION OVERRIDES
+   ========================================================================== */
+
+/* 1. Global Reset Constraints */
+.header,
+.header.sticky,
+header.sticky {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 2.2rem 7% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    z-index: 1000 !important;
+    background: transparent !important;
+}
+
+/* 2. Absolute Centered Desktop Navigation Pill Setup */
+.header .navbar {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    height: 5.6rem !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 5rem !important;
+    padding: 0 3.5rem !important;
+    gap: 3rem !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15),
+        inset 0 0 10px rgba(255, 255, 255, 0.03) !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+}
+
+/* Anchor Alignment Normalization rules */
+.header .navbar a {
+    display: inline-flex !important;
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    position: relative !important;
+    margin-left: 0 !important;
+    /* Wipes out the old 3.5rem layout shift */
+    transform: none !important;
+    /* Stops the -20rem link displacement */
+    transition: color 0.3s ease !important;
+}
+
+.header .navbar a:hover,
+.header .navbar a.active {
+    color: #ffffff !important;
+}
+
+/* Pipe Layout Modifiers */
+.header .navbar a:not(:last-child)::after {
+    content: '|' !important;
+    position: absolute !important;
+    right: -1.7rem !important;
+    font-size: 1.6rem !important;
+    font-weight: 300 !important;
+    color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.header .navbar a:last-child::after {
+    display: none !important;
+    content: none !important;
+}
+
+.header .navbar a.active::before {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -0.8rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 4px !important;
+    height: 4px !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+}
+
+/* 3. Tiny Desktop Theme Toggle Configuration (Locked on Far Right) */
+.header .theme-toggle {
+    order: 3 !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 4.4rem !important;
+    width: 7.8rem !important;
+    padding: 0 1.2rem !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(25px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 5rem !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    z-index: 1005 !important;
+}
+
+.header .theme-toggle i {
+    font-size: 1.6rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.header .theme-toggle .bxs-sun {
+    color: #ffb703 !important;
+}
+
+.header .theme-toggle .bxs-moon {
+    color: #ffffff !important;
+}
+
+.header .theme-toggle::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 0.5rem !important;
+    transform: translateY(-50%) !important;
+    width: 3.4rem !important;
+    height: 3.4rem !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+    transition: left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    z-index: 2 !important;
+}
+
+/* Light mode support variables */
+body.light-mode .header .navbar {
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .header .navbar a {
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+
+body.light-mode .header .navbar a:hover,
+body.light-mode .header .navbar a.active {
+    color: #000000 !important;
+}
+
+body.light-mode .header .navbar a:not(:last-child)::after {
+    color: rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light-mode .header .navbar a.active::before {
+    background-color: #000000 !important;
+}
+
+body.light-mode .header .theme-toggle {
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .header .theme-toggle::before {
+    left: 3.7rem !important;
+    background-color: #000000 !important;
+}
+
+body.light-mode .header .theme-toggle .bxs-moon {
+    color: #666666 !important;
+}
+
+/* ==========================================================================
+   4. MOBILE STRUCTURAL RENDERING (FULL WIDTH PILL + UNDER-CENTERED TOGGLE)
+   ========================================================================== */
+@media (max-width: 950px) {
+
+    .header,
+    .header.sticky {
+        padding: 1.5rem 4% !important;
+    }
+
+    .header .navbar {
+        position: static !important;
+        transform: none !important;
+        gap: 1.8rem !important;
+        padding: 0 2.2rem !important;
+        height: 5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .header,
+    .header.sticky {
+        padding: 1.2rem 3% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        /* Stacks layout element rows uniformly */
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 1.2rem !important;
+        height: auto !important;
+    }
+
+    .header .logo {
+        display: none !important;
+    }
+
+    /* Fixed Full horizontal Mobile Navigation bar container */
+    .header .navbar {
+        position: static !important;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        /* Guarantees the items stay anchored horizontally */
+        align-items: center !important;
+        justify-content: space-around !important;
+        /* Distributes links evenly left to right */
+        width: 100% !important;
+        height: 4.6rem !important;
+        padding: 0 1.2rem !important;
+        gap: 0 !important;
+        margin: 0 !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 5rem !important;
+    }
+
+    /* Compact Typography Fluid Scaling rules */
+    .header .navbar a {
+        font-size: 1.5rem !important;
+        font-weight: 450 !important;
+        letter-spacing: -0.1px !important;
+        margin-left: 0 !important;
+        transform: none !important;
+        display: inline-flex !important;
+    }
+
+    /* Bring back and scale down the pipe separators for mobile */
+    .header .navbar a:not(:last-child)::after {
+        content: '|' !important;
+        position: absolute !important;
+        right: -0.7rem !important;
+        /* Fixed coordinate gap instead of volatile percentage tracking */
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        /* Perfect vertical centering align alignment */
+        font-size: 1.2rem !important;
+        font-weight: 300 !important;
+        color: rgba(255, 255, 255, 0.2) !important;
+        display: inline-flex !important;
+        pointer-events: none !important;
+
+    }
+
+    body.light-mode .header .navbar a:not(:last-child)::after {
+        color: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .header .navbar a.active::before {
+        bottom: -0.6rem !important;
+        width: 3.5px !important;
+        height: 3.5px !important;
+    }
+
+    /* Centered Mobile Toggle Underneath */
+    .header .theme-toggle {
+        order: 2 !important;
+        margin: 0 auto !important;
+        height: 4rem !important;
+        width: 7.2rem !important;
+        padding: 0 1rem !important;
+    }
+
+    .header .theme-toggle i {
+        font-size: 1.4rem !important;
+    }
+
+    .header .theme-toggle::before {
+        width: 3rem !important;
+        height: 3rem !important;
+        left: 0.4rem !important;
+    }
+
+    body.light-mode .header .theme-toggle::before {
+        left: 3.6rem !important;
+    }
+
+    /* Brutally force the pipe to disappear after the Contact link on mobile */
+    .header .navbar a:last-of-type::after,
+    .header .navbar a[href="#contact"]::after {
+        display: none !important;
+        content: none !important;
+    }
+}
+
+/* ==========================================================================
+   HOMEPAGE HERO HEADING TYPOGRAPHY OVERRIDES (STRICT WEIGHT UNIFICATION)
+   ========================================================================== */
+
+/* Force parent h1 container to allow children to scale down to lighter assets */
+.home-content h1 {
+    font-weight: 480 !important;
+}
+
+/* 1. Force "Building digital" to be thin */
+.home-content h1 span.thin-heading {
+    font-weight: 480 !important;
+    /* Uses the light font asset thickness */
+    color: inherit;
+    display: inline-block;
+}
+
+/* 2. Force "experiences" to perfectly match that exact lightness */
+.home-content h1 i.slanted-text {
+    font-style: italic !important;
+    display: inline-block !important;
+
+    /* Strict Uniform Thickness Match */
+    font-weight: 480 !important;
+    /* Exact match to the weight above */
+
+    /* Extra Custom Angle leaning */
+    transform: skewX(-10deg) !important;
+
+    color: inherit;
+}
+
+.home-sci a:not(.download-resume) {
+    width: 45px !important;
+    /* Increased from 40px to give the icon breathing room */
+    height: 45px !important;
+    /* Increased from 40px */
+}
+
+/* 2. Scale up the actual inner icons on desktop */
+.home-sci a:not(.download-resume) i {
+    font-size: 2.4rem !important;
+    /* Increased from 20px to make them visibly larger and clearer */
+}
+
+/* 3. Scale up the layout gracefully on mobile screens */
+@media (max-width: 520px) {
+
+    /* Enlarges the mobile circle bounds */
+    .home-sci a:not(.download-resume) {
+        width: 3.5rem !important;
+        /* Increased from 3.2rem to prevent icon clipping */
+        height: 3.5rem !important;
+        /* Increased from 3.2rem */
+    }
+
+    /* Enlarges the actual inner mobile icons */
+    .home-sci a:not(.download-resume) i {
+        font-size: 1.7rem !important;
+        /* Increased from 1.4rem to match the new circle scale */
+    }
+}
+
+/* ==========================================================================
+   EXACT GLASSY INTERFACE & FIXED DOT GRID PATTERN (ZERO CURSOR MOVEMENT)
+   ========================================================================== */
+
+/* 1. Main outer housing structural positioning */
+.about-grid-container {
+    position: relative;
+    width: 100%;
+    margin-top: 3.5rem;
+    /* Generous spacing below paragraph text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    /* CRITICAL LOCKS: Forces the entire component wrapper to stay perfectly still */
+    transform: none !important;
+    transition: none !important;
+    perspective: none !important;
+}
+
+/* 2. The high-end Frosted Glass UI panel layer (STRICT MOTION DISABLE) */
+.about-grid-container .glass-card {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    /* Exact modern height strip layout */
+    background: rgba(255, 255, 255, 0.01) !important;
+    /* Maximum background transparency */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    /* Micro-fine crisp border line */
+    border-radius: 1.6rem !important;
+    /* */
+    overflow: hidden;
+    /* */
+
+    /* PURE GLASS BLUR CONFIGURATION */
+    backdrop-filter: blur(20px) saturate(140%) !important;
+    /* Heavy frosting diffusion melt */
+    -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+
+    /* BRUTAL ANTI-MOTION OVERRIDES: Blocks any cursor hover scripts or animations */
+    transform: none !important;
+    will-change: auto !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+/* 3. Ensure hover changes absolutely nothing */
+.about-grid-container .glass-card:hover {
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.01) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+}
+
+/* 4. The exact mathematical Radial Dot Grid Matrix */
+.about-grid-container .dot-grid-pattern {
+    position: absolute;
+    inset: 0;
+    /* */
+    /* Draws sharp 1.5px matrix dots spaced perfectly across 24px intervals */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px) !important;
+    /* */
+    background-size: 24px 24px !important;
+    /* */
+    background-position: center center !important;
+    /* */
+    opacity: 0.85;
+    /* */
+
+    /* Fixes pattern strictly in place */
+    transform: none !important;
+}
+
+/* 5. The immersive dynamic cyan back-glow orb anchor */
+.about-grid-container .glow-orb {
+    position: absolute;
+    width: 140px;
+    /* */
+    height: 140px;
+    /* */
+    background: var(--main-color) !important;
+    /* Pulls your primary glowing cyan theme variable */
+    top: 50%;
+    /* */
+    left: 15%;
+    /* */
+    transform: translate(-50%, -50%) !important;
+    /* */
+    border-radius: 50%;
+    /* */
+    filter: blur(65px) !important;
+    /* Extreme heavy blur dispersion */
+    opacity: 0.45;
+    /* */
+    pointer-events: none;
+    /* */
+}
+
+/* 6. Linear layout angle glossy reflection flare override */
+.about-grid-container .card-glass-reflection {
+    position: absolute;
+    inset: 0;
+    /* */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 60%) !important;
+    pointer-events: none;
+    /* */
+}
+
+/* ==========================================================================
+   LIGHT MODE VERIFICATION RULES (STRICT STATIC OVERRIDES)
+   ========================================================================== */
+body.light-mode .about-grid-container .glass-card {
+    background: rgba(0, 0, 0, 0.01) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    /* */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    transform: none !important;
+}
+
+body.light-mode .about-grid-container .glass-card:hover {
+    transform: none !important;
+}
+
+body.light-mode .about-grid-container .dot-grid-pattern {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px) !important;
+    /* */
+    opacity: 0.7;
+    /* */
+}
+
+/* ==========================================================================
+   FIXED TOP-ICON FOUR-COLUMN UNBENDING HORIZONTAL STRIP SYSTEM
+   ========================================================================== */
+
+/* 1. Base Glass Card Layout Framework */
+.about-grid-container .glass-card {
+    position: relative;
+    width: 100%;
+    height: auto !important;
+    min-height: 160px !important;
+    /* Slightly taller to accommodate the top-aligned icons cleanly */
+    background: rgba(255, 255, 255, 0.01) !important;
+    /* Elegant background transparency */
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    /* Fine edge lines */
+    border-radius: 2rem !important;
+    /* */
+    overflow: hidden;
+    /* */
+    backdrop-filter: blur(25px) saturate(130%) !important;
+    /* Frosted visual glass melt */
+    -webkit-backdrop-filter: blur(25px) saturate(130%) !important;
+    transform: none !important;
+    /* Locks structural elements static against script tilt bugs */
+    transition: none !important;
+}
+
+.about-grid-container .glass-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* 2. Full Width Content Plate Positioning */
+.about-grid-container .glass-card-content {
+    position: relative;
+    width: 100%;
+    padding: 3rem 2.5rem !important;
+    /* Balanced side clearance spaces */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 5;
+    pointer-events: none;
+    /* */
+}
+
+/* 3. Strict Horizontal Alignment Track (Guarantees Row View Everywhere) */
+.glass-card-content .metrics-horizontal-strip {
+    display: flex !important;
+    flex-direction: row !important;
+    /* Solid straight line configuration */
+    flex-wrap: nowrap !important;
+    /* ENTIRELY PREVENTS WRAPPING ON ALL PHONES */
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    /* Top aligns headers to keep boxes balanced */
+    width: 100%;
+    gap: 1.5rem !important;
+    /* Grid spacing safety gutter gaps */
+}
+
+/* 4. Vertical Item Content Alignment Stack (Icon over Number over Label) */
+.metrics-horizontal-strip .metric-item-box {
+    display: flex !important;
+    flex-direction: column !important;
+    /* Stacks the content components cleanly */
+    align-items: center !important;
+    /* Center-aligns icons and texts in the column */
+    text-align: center !important;
+    /* Centers wrapped text strings perfectly */
+    flex: 1;
+    /* Assigns even width spacing distribution across all 4 boxes */
+    gap: 0.6rem !important;
+    /* Tiny visual spacing steps between components */
+}
+
+/* Icon Design Parameters on Top */
+.metric-item-box .metric-icon-top i {
+    font-size: 2.5rem !important;
+    color: var(--main-color) !important;
+    /* Brand theme synchronized highlights */
+    filter: drop-shadow(0 0 6px rgba(230, 241, 255, 0.2)) !important;
+    opacity: 0.9;
+}
+
+.metric-item-box .metric-text-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+/* Big Numeric Metric Values */
+.metric-text-stack .metric-number {
+    font-size: 2.8rem !important;
+    font-weight: 800 !important;
+    /* Crisp bold styling emphasis */
+    color: #ffffff !important;
+    line-height: 1;
+}
+
+/* Smaller Descriptions (Handles the Wrapping Fix perfectly) */
+.metric-text-stack .metric-label {
+    font-size: 1.1rem !important;
+    font-weight: 400 !important;
+    /* Clean readable label weight */
+    color: var(--text-color) !important;
+    /* Muted corporate grey */
+    line-height: 1.3 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+
+    /* THE TRUNCATION FIX: Allows words to split onto multiple lines instead of running off-screen */
+    white-space: normal !important;
+    word-break: keep-all !important;
+    /* Keeps whole words solid without weird mid-letter syllable breaking */
+}
+
+/* ==========================================================================
+   LIGHT MODE VERIFICATION RULES
+   ========================================================================== */
+body.light-mode .metric-text-stack .metric-number {
+    color: #000000 !important;
+}
+
+body.light-mode .metric-text-stack .metric-label {
+    color: #555555 !important;
+}
+
+body.light-mode .metric-item-box .metric-icon-top i {
+    color: #000000 !important;
+    filter: none !important;
+}
+
+body.light-mode .about-grid-container .glass-card {
+    background: rgba(0, 0, 0, 0.01) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ==========================================================================
+   FLUID MOBILE SCALING OVERRIDE (Ensures perfect Left-To-Right Fit)
+   ========================================================================== */
+/* ==========================================================================
+   FLUID MOBILE SCALING OVERRIDE (TIGHTER HEIGHT + LARGER ROW-LOCKED TEXT)
+   ========================================================================== */
+@media (max-width: 520px) {
+
+    /* 1. Shrink the box height to eliminate the empty space at the bottom */
+    .about-grid-container .glass-card {
+        min-height: 115px !important;
+        /* Collapses the container tight around the content */
+    }
+
+    /* 2. Reduce top/bottom padding to kill empty space; trim side padding for width */
+    .about-grid-container .glass-card-content {
+        padding: 1.4rem 0.5rem !important;
+    }
+
+    /* 3. Ultra-tight gap bounds to keep all 4 elements locked horizontally */
+    .glass-card-content .metrics-horizontal-strip {
+        gap: 0.3rem !important;
+    }
+
+    .metrics-horizontal-strip .metric-item-box {
+        gap: 0.3rem !important;
+    }
+
+    /* 4. INCREASE VISUAL SIZES (Noticeably larger text and graphics) */
+    .metric-item-box .metric-icon-top i {
+        font-size: 2.1rem !important;
+        /* Increased from 1.8rem for high visibility */
+    }
+
+    .metric-text-stack .metric-number {
+        font-size: 2.3rem !important;
+        /* Increased from 1.8rem to stand out boldly */
+    }
+
+    .metric-text-stack .metric-label {
+        font-size: 0.85rem !important;
+        /* Increased from 0.75rem for crisp legibility */
+        line-height: 1.2 !important;
+        /* Tight stacked row alignment layout spacing */
+        letter-spacing: -0.3px;
+        /* Micro-tracking prevents columns from spilling over boundaries */
+    }
+}
+
+/* ==========================================================================
+   SHARED BACKGROUND MATRIX DOTS (APPLIES TO TECH STACK & ALL PROJECT SECTIONS)
+   ========================================================================== */
+
+/* 1. Universal Glass Container Backdrop Layout */
+.skills-matrix-container {
+    position: relative !important;
+    overflow: hidden !important;
+    background: rgba(255, 255, 255, 0.01) !important;
+    /* Premium glassy backdrop clarity */
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    /* Fine edge lines */
+    backdrop-filter: blur(25px) saturate(130%) !important;
+    /* Frosted glass finish */
+    -webkit-backdrop-filter: blur(25px) saturate(130%) !important;
+}
+
+/* 2. Universal Math-Accurate Background Grid Dot Pattern */
+.skills-matrix-container .dot-grid-pattern {
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px) !important;
+    /* Sharp alignment points */
+    background-size: 24px 24px !important;
+    background-position: center center !important;
+    opacity: 0.85;
+    z-index: 1 !important;
+    transform: none !important;
+    /* Strictly locks position flat */
+}
+
+/* 3. Universal Ambient Backdrop Cyan Glow Orb */
+.skills-matrix-container .glow-orb {
+    position: absolute !important;
+    width: 200px !important;
+    height: 200px !important;
+    background: var(--main-color) !important;
+    /* Adapts to your theme color variables */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 50% !important;
+    filter: blur(80px) !important;
+    /* Soft backdrop blending diffusion */
+    opacity: 0.3;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+
+/* Linear light surface reflection flare */
+.skills-matrix-container .card-glass-reflection {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 60%) !important;
+    pointer-events: none !important;
+    z-index: 3 !important;
+}
+
+/* 4. Universal Inner Content Plate (Lifts text/images above background dots) */
+.skills-glass-overlay-card {
+    position: relative !important;
+    background: transparent !important;
+    /* Removes default solid card background colors */
+    border: none !important;
+    /* Disables duplicate inner borders */
+    z-index: 5 !important;
+}
+
+/* ==========================================================================
+   LIGHT MODE TRANSLUCENT OVERRIDES
+   ========================================================================== */
+body.light-mode .skills-matrix-container {
+    background: rgba(0, 0, 0, 0.01) !important;
+    /* Tinted shadow window */
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+body.light-mode .skills-matrix-container .dot-grid-pattern {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px) !important;
+    /* Dark graphite dots */
+    opacity: 0.7;
+}
+
+body.light-mode .skills-matrix-container .glow-orb {
+    opacity: 0.1;
+}
+
+/* ==========================================================================
+   CONTACT SECTION INNER CARD DOT ALIGNMENT CORRECTIONS
+   ========================================================================== */
+
+/* 1. Ensure the form and info cards act as perfect coordinate anchors for the dots */
+.contact-left form.skills-matrix-container,
+.contact-right .contact-info-card.skills-matrix-container {
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    /* Keeps your signature .2rem border size intact from your original styles */
+    border: .2rem solid var(--main-color) !important;
+    border-radius: 2rem !important;
+    padding: 3rem 2rem !important;
+    /* Perfect padding boundaries inside the glass windows */
+}
+
+/* 2. Soften the backdrop glow orb specifically for these smaller contact windows */
+.contact-left form.skills-matrix-container .glow-orb,
+.contact-right .contact-info-card.skills-matrix-container .glow-orb {
+    width: 120px !important;
+    height: 120px !important;
+    filter: blur(55px) !important;
+    /* Tighter dispersion pattern so it stays readable */
+    opacity: 0.25;
+}
+
+/* Light mode support variables alignment */
+body.light-mode .contact-left form.skills-matrix-container,
+body.light-mode .contact-right .contact-info-card.skills-matrix-container {
+    border: .2rem solid #000000 !important;
+    /* Sharp pure black lines for light mode */
 }
