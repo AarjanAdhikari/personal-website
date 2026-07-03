@@ -3997,7 +3997,7 @@ body.light-mode .header .theme-toggle .bxs-moon {
     inset: 0;
     /* */
     /* Draws sharp 1.5px matrix dots spaced perfectly across 24px intervals */
-    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px) !important;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.221) 1.5px, transparent 1.5px) !important;
     /* */
     background-size: 24px 24px !important;
     /* */
@@ -4277,7 +4277,7 @@ body.light-mode .about-grid-container .glass-card {
 .skills-matrix-container .dot-grid-pattern {
     position: absolute !important;
     inset: 0 !important;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px) !important;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.174) 1.5px, transparent 1.5px) !important;
     /* Sharp alignment points */
     background-size: 24px 24px !important;
     background-position: center center !important;
@@ -4376,4 +4376,26 @@ body.light-mode .contact-left form.skills-matrix-container,
 body.light-mode .contact-right .contact-info-card.skills-matrix-container {
     border: .2rem solid #000000 !important;
     /* Sharp pure black lines for light mode */
+}
+
+.header.scrollable-header {
+    position: absolute !important; 
+    /* Changes from fixed to absolute so it scrolls out of view */
+}
+
+/* 1. Ensure the form and info cards act as perfect coordinate anchors for the dots */
+.contact-left form.skills-matrix-container,
+.contact-right .contact-info-card.skills-matrix-container {
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border: none !important;                             /* Completely removes the border line */
+    border-radius: 2rem !important;
+    padding: 3rem 2rem !important;
+}
+
+body.light-mode .contact-left form.skills-matrix-container,
+body.light-mode .contact-right .contact-info-card.skills-matrix-container {
+    border: none !important;
 }
