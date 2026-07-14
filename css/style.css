@@ -1519,8 +1519,8 @@ section:nth-child(odd) .animate.scroll,
 
 .about.show-animate .animate.scroll,
 .education.show-animate .animate.scroll,
-.skills.show-animate .animate.scroll,
 .projects.show-animate .animate.scroll,
+.certifications.show-animate .animate.scroll,
 .blog.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
 .footer.show-animate .animate.scroll {
@@ -4379,7 +4379,7 @@ body.light-mode .contact-right .contact-info-card.skills-matrix-container {
 }
 
 .header.scrollable-header {
-    position: absolute !important; 
+    position: absolute !important;
     /* Changes from fixed to absolute so it scrolls out of view */
 }
 
@@ -4390,7 +4390,8 @@ body.light-mode .contact-right .contact-info-card.skills-matrix-container {
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
-    border: none !important;                             /* Completely removes the border line */
+    border: none !important;
+    /* Completely removes the border line */
     border-radius: 2rem !important;
     padding: 3rem 2rem !important;
 }
@@ -4398,4 +4399,175 @@ body.light-mode .contact-right .contact-info-card.skills-matrix-container {
 body.light-mode .contact-left form.skills-matrix-container,
 body.light-mode .contact-right .contact-info-card.skills-matrix-container {
     border: none !important;
+}
+
+/* Tech Stack Logos in Projects */
+.project-tech-logos {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.project-tech-logos i {
+    font-size: 2.4rem;
+    /* Scaled down size */
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.project-tech-logos i:hover {
+    color: #ffffff;
+    /* Pure white contrast for dark mode */
+    transform: translateY(-2px);
+}
+
+body.light-mode .project-tech-logos i:hover {
+    color: #000000;
+}
+
+/* =========================================
+   MOBILE NAVBAR FIX (SWIPE LEFT/RIGHT)
+========================================= */
+@media (max-width: 768px) {
+
+    /* Hide the hamburger menu since we are swiping now */
+    #menu-icon {
+        display: none !important;
+    }
+
+    /* Make the navbar horizontally scrollable */
+    .header .navbar {
+        position: static;
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+        background: transparent;
+        box-shadow: none;
+        padding: 1rem 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Hide scrollbar for Firefox */
+    }
+
+    /* Hide scrollbar for Chrome/Safari */
+    .header .navbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Keep the links inline and properly spaced */
+    .header .navbar a {
+        display: inline-block;
+        margin: 0 1.5rem;
+        font-size: 1.6rem;
+        transform: none !important;
+    }
+
+    /* Hide the dropdown background element */
+    .header .navbar .active-nav {
+        display: none;
+    }
+
+    .theme-toggle {
+        margin-right: 0;
+        flex-shrink: 0;
+    }
+}
+
+/* =========================================
+   DOT GRID & GLASS CARD ANIMATIONS
+========================================= */
+.skills-matrix-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2.1rem;
+    background: var(--bg-color);
+}
+
+.dot-grid-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+}
+
+body.light-mode .dot-grid-pattern {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+}
+
+.glow-orb {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(230, 241, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    animation: floatOrb 6s infinite alternate ease-in-out;
+}
+
+body.light-mode .glow-orb {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
+}
+
+.card-glass-reflection {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.03), transparent);
+    transform: skewX(-20deg);
+    z-index: 0;
+    animation: glassReflection 8s infinite;
+}
+
+body.light-mode .card-glass-reflection {
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.03), transparent);
+}
+
+.skills-glass-overlay-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(7, 7, 15, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.light-mode .skills-glass-overlay-card {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes floatOrb {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(40px, 40px) scale(1.1);
+    }
+}
+
+@keyframes glassReflection {
+    0% {
+        left: -100%;
+    }
+
+    20% {
+        left: 200%;
+    }
+
+    100% {
+        left: 200%;
+    }
 }
