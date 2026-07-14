@@ -5,41 +5,58 @@ Current portfolio site built from scratch to master the core principles of web l
 ![Project Preview](images/portfolio-v2.png)
 
 ---
+## Installation
 
-## 🌍 Live Website
+```bash
+git clone https://github.com/AarjanAdhikari/portfolio.git
 
-🔗 https://aarjanadhikari.com.np
+cd portfolio
 
----
+npm install
+```
 
+## Development
 
-## 💼 Tech Stack
+```bash
+npm run dev
+```
 
-### 💻 Frontend
-- HTML5
-- CSS3
-- JavaScript (ES6+)
+Open http://localhost:3000
 
-### 🛠 Tools & Concepts
-- Git & GitHub
-- Figma (Design to Code)
-- Responsive web design
-- UX-focused layouts
+## Production
 
----
+```bash
+npm run build
+npm run start
+```
 
-## 🎯 Key Features
+## Tech Stack
 
-This website includes:
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Vercel
 
-- 👋 Hero introduction
-- 📖 About & Skills sections
-- 🧰 Projects showcase
-- 📬 Contact form
-- 📱 Fully responsive layout
-- ⚡ Clean, modern UI
+## Project Structure
 
----
+```text
+app/
+components/
+lib/
+public/
+styles/
+```
 
+## Scripts
 
-The repository follows a simple and maintainable structure:
+```bash
+npm run dev       # Start development server
+npm run build     # Build for production
+npm run start     # Start production server
+npm run lint      # Run ESLint
+```
+
+## License
+
+MIT © Aarjan Adhikari
