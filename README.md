@@ -217,7 +217,6 @@ This is a personal website, so contributions may be limited. If contributions ar
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-If no license has been chosen yet, keep the repository private or add a license file before publishing.
 
 ## Contact
 
