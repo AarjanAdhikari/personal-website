@@ -4581,12 +4581,19 @@ body.light-mode .skills-glass-overlay-card {
 @media (max-width: 768px) {
     .scroll-arrow {
         display: inline-block;
-        color: rgba(255, 255, 255, 0.45); /* Transparent white */
+        color: rgba(255, 255, 255, 0.45);
         font-size: 1.2rem;
         margin-left: 4px;
         vertical-align: middle;
         animation: subtleFade 2s infinite ease-in-out;
         pointer-events: none;
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade out */
+    }
+
+    /* Hides the arrow smoothly when scrolled right */
+    .navbar.hide-arrow .scroll-arrow {
+        opacity: 0;
+        visibility: hidden;
     }
 
     /* Soft pulsing fade */
