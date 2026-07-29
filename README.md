@@ -25,7 +25,7 @@ The website is organized around a small number of high-value sections:
 * Home
 * About
 * Projects
-* Experience
+* Certificates
 * Writing
 * Contact
 
@@ -37,11 +37,11 @@ The exact stack may vary by version of the repository. Typical technologies used
 
 | Layer          | Technology                     |
 | -------------- | ------------------------------ |
-| Frontend       | Next.js / React                |
-| Language       | TypeScript                     |
-| Styling        | Tailwind CSS                   |
+| Markup         | HTML 5                         |
+| Interaction    | JavaScript                     |
+| Styling        | CSS 3                          |
 | Components     | shadcn/ui or custom components |
-| Deployment     | Vercel or equivalent platform  |
+| Deployment     | GitHub                         |
 | Domain         | Custom domain configuration    |
 | Source Control | Git / GitHub                   |
 
@@ -147,18 +147,6 @@ Update this section based on how the site is structured in the repository.
 
 ## Project Structure
 
-```bash
-.
-├── app/
-├── components/
-├── lib/
-├── public/
-├── styles/
-├── content/
-├── package.json
-└── README.md
-```
-
 This structure is representative. Replace it with the actual repository layout if needed.
 
 ## Deployment
@@ -227,7 +215,7 @@ This is a personal website, so contributions may be limited. If contributions ar
 
 ## License
 
-Specify the license for the repository here.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 If no license has been chosen yet, keep the repository private or add a license file before publishing.
 
