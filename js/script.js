@@ -593,5 +593,20 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize contact info hover
   initContactInfoHover();
 
+  // Hide navbar scroll arrow when user slides right
+const navbar = document.querySelector('.navbar');
+
+if (navbar) {
+    navbar.addEventListener('scroll', () => {
+        // If scrolled right more than 15px, hide the arrow
+        if (navbar.scrollLeft > 15) {
+            navbar.classList.add('hide-arrow');
+        } else {
+            // Scrolled back to start, show arrow again
+            navbar.classList.remove('hide-arrow');
+        }
+    });
+}
+
   console.log('🚀 Glassmorphism Portfolio Loaded Successfully!');
 });
