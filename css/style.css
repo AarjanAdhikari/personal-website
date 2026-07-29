@@ -4594,6 +4594,7 @@ body.light-mode .skills-glass-overlay-card {
     .navbar.hide-arrow .scroll-arrow {
         opacity: 0;
         visibility: hidden;
+        animation: none;
     }
 
     /* Soft pulsing fade */
