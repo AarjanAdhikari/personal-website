@@ -4587,7 +4587,8 @@ body.light-mode .skills-glass-overlay-card {
         vertical-align: middle;
         animation: subtleFade 2s infinite ease-in-out;
         pointer-events: none;
-        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade out */
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        /* Smooth fade out */
     }
 
     /* Hides the arrow smoothly when scrolled right */
@@ -4599,11 +4600,14 @@ body.light-mode .skills-glass-overlay-card {
 
     /* Soft pulsing fade */
     @keyframes subtleFade {
-        0%, 100% { 
-            opacity: 0.2; 
+
+        0%,
+        100% {
+            opacity: 0.2;
         }
-        50% { 
-            opacity: 0.8; 
+
+        50% {
+            opacity: 0.8;
         }
     }
 }
@@ -4623,7 +4627,8 @@ body.light-mode .skills-glass-overlay-card {
         vertical-align: middle;
         animation: subtleFade 2s infinite ease-in-out;
         pointer-events: none;
-        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade out */
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        /* Smooth fade out */
     }
 
     /* Hides the arrow smoothly when scrolled right */
@@ -4635,11 +4640,14 @@ body.light-mode .skills-glass-overlay-card {
 
     /* Soft pulsing fade */
     @keyframes subtleFade {
-        0%, 100% { 
-            opacity: 0.2; 
+
+        0%,
+        100% {
+            opacity: 0.2;
         }
-        50% { 
-            opacity: 0.8; 
+
+        50% {
+            opacity: 0.8;
         }
     }
 }
