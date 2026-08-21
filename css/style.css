@@ -4607,3 +4607,39 @@ body.light-mode .skills-glass-overlay-card {
         }
     }
 }
+
+/* Hide arrow on desktop */
+.scroll-arrow {
+    display: none;
+}
+
+/* Show and animate arrow ONLY on mobile */
+@media (max-width: 768px) {
+    .scroll-arrow {
+        display: inline-block;
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 1.2rem;
+        margin-left: 4px;
+        vertical-align: middle;
+        animation: subtleFade 2s infinite ease-in-out;
+        pointer-events: none;
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade out */
+    }
+
+    /* Hides the arrow smoothly when scrolled right */
+    .navbar.hide-arrow .scroll-arrow {
+        opacity: 0;
+        visibility: hidden;
+        animation: none;
+    }
+
+    /* Soft pulsing fade */
+    @keyframes subtleFade {
+        0%, 100% { 
+            opacity: 0.2; 
+        }
+        50% { 
+            opacity: 0.8; 
+        }
+    }
+}
