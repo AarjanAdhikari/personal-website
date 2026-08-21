@@ -594,19 +594,19 @@ document.addEventListener('DOMContentLoaded', function () {
   initContactInfoHover();
 
   // Hide navbar scroll arrow when user slides right
-const navbar = document.querySelector('.navbar');
+  const navbar = document.querySelector('.navbar');
 
-if (navbar) {
+  if (navbar) {
     navbar.addEventListener('scroll', () => {
-        // If scrolled right more than 15px, hide the arrow
-        if (navbar.scrollLeft > 5) {
-            navbar.classList.add('hide-arrow');
-        } else {
-            // Scrolled back to start, show arrow again
-            navbar.classList.remove('hide-arrow');
-        }
+      // If scrolled right more than 15px, hide the arrow
+      if (navbar.scrollLeft > 5) {
+        navbar.classList.add('hide-arrow');
+      } else {
+        // Scrolled back to start, show arrow again
+        navbar.classList.remove('hide-arrow');
+      }
     });
-}
+  }
 
   console.log('🚀 Glassmorphism Portfolio Loaded Successfully!');
 });
