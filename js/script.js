@@ -599,7 +599,7 @@ const navbar = document.querySelector('.navbar');
 if (navbar) {
     navbar.addEventListener('scroll', () => {
         // If scrolled right more than 15px, hide the arrow
-        if (navbar.scrollLeft > 15) {
+        if (navbar.scrollLeft > 5) {
             navbar.classList.add('hide-arrow');
         } else {
             // Scrolled back to start, show arrow again
