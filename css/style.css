@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 * {
     margin: 0;
@@ -3889,18 +3890,14 @@ body.light-mode .header .theme-toggle .bxs-moon {
     display: inline-block;
 }
 
-/* 2. Force "experiences" to perfectly match that exact lightness */
 .home-content h1 i.slanted-text {
-    font-style: italic !important;
-    display: inline-block !important;
-
-    /* Strict Uniform Thickness Match */
-    font-weight: 480 !important;
-    /* Exact match to the weight above */
-
-    /* Extra Custom Angle leaning */
-    transform: skewX(-10deg) !important;
-
+    font-family: 'Dancing Script', cursive !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 1.15em;
+    /* Slightly scales up the script font for visual balance */
+    transform: none !important;
+    /* Removes harsh skew so the natural cursive flow looks clean */
     color: inherit;
 }
 
